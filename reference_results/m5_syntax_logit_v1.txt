@@ -1,0 +1,7 @@
+g =~ ifeval_lg+bbh_lg+math_lg+gpqa_lg+musr_lg+mmlupro_lg 
+ ifeval_lg ~~ math_lg 
+ gpqa_lg ~~ musr_lg 
+ bbh_lg ~~ musr_lg 
+ ifeval_lg ~~ gpqa_lg 
+ musr_lg ~~ mmlupro_lg 
+ bbh_lg ~~ math_lg

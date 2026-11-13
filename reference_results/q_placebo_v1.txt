@@ -1,0 +1,18 @@
+
+ fine-tuned split by lineage | converged: 100 
+    metric.cfi.robust scalar.cfi.robust
+0%            -0.0033           -0.0037
+1%            -0.0029           -0.0025
+5%            -0.0026           -0.0021
+50%           -0.0005           -0.0005
+95%            0.0006            0.0007
+share with dCFI <= -.012 (metric): 0  share with dCFI <= -.015 (scalar): 0 
+
+ pretrained split by organisation | converged: 100 
+    metric.cfi.robust scalar.cfi.robust
+0%            -0.0201           -0.0287
+1%            -0.0194           -0.0279
+5%            -0.0167           -0.0120
+50%           -0.0030           -0.0016
+95%            0.0047            0.0044
+share with dCFI <= -.012 (metric): 0.1  share with dCFI <= -.015 (scalar): 0.03 

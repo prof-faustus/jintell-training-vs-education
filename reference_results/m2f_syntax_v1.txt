@@ -1,0 +1,2 @@
+F1 =~ ifeval_lg+bbh_lg+math_lg+gpqa_lg+musr_lg+mmlupro_lg
+F2 =~ ifeval_lg+math_lg

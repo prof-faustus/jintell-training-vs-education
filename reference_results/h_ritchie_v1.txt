@@ -1,0 +1,295 @@
+Pretrained unstandardised loadings (logit units, var(g)=1)
+ ifeval_lg     bbh_lg    math_lg    gpqa_lg    musr_lg mmlupro_lg 
+     0.345      1.153      1.022      0.873      0.414      1.423 
+
+=== Pair set: all | pairs: 540 | lineages: 80 ===
+Child types:
+
+               base merges and moerges      chat models (RLHF, DPO, IFT, ...) 
+                                     2                                    155 
+               continuously pretrained fine-tuned on domain-specific datasets 
+                                    13                                    346 
+                                 other                             pretrained 
+                                     1                                     23 
+Base types:
+
+               base merges and moerges      chat models (RLHF, DPO, IFT, ...) 
+                                     1                                     96 
+               continuously pretrained fine-tuned on domain-specific datasets 
+                                     4                                     17 
+                                 other                             pretrained 
+                                     1                                    421 
+Lineage-clustered mean gain (logit units) and SE
+     ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+gain     0.410 -0.115  -0.146  -0.125  -0.055     -0.197
+se       0.092  0.072   0.089   0.095   0.081      0.066
+Gain in pretrained-SD units:
+ ifeval_lg     bbh_lg    math_lg    gpqa_lg    musr_lg mmlupro_lg 
+     0.647     -0.098     -0.121     -0.112     -0.076     -0.136 
+GLS proportional-to-loadings model (pure g gain): mu = -0.125, Q = 37.65, df = 5, p = 4.43e-07
+With loading uncertainty (2000 draws): Q 2.5/50/97.5% = 35.28 37.69 40.04 | p at those Q = 1.47e-07 4.35e-07 1.32e-06 
+
+MIMIC on stacked children + bases (n = 620 , clusters = 80 )
+  chisq.scaled df cfi.robust rmsea.robust  srmr      aic      bic
+A       34.824 11      0.985        0.090 0.037 7842.503 7939.957
+B       16.641  8      0.994        0.066 0.018 7809.430 7920.173
+C       14.223  6      0.994        0.078 0.016 7811.088 7930.691
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+       Df    AIC    BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$C  6 7811.1 7930.7 39.406                                  
+fits$B  8 7809.4 7920.2 41.748     1.3591       2     0.5069    
+fits$A 11 7842.5 7940.0 80.821    21.4714       3  8.402e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Model A paths from ft
+   lhs   est    se ci.lower ci.upper pvalue
+10   g 0.009 0.209   -0.402    0.419  0.967
+
+Model B paths from ft
+          lhs    est    se ci.lower ci.upper pvalue
+10          g -0.011 0.220   -0.441    0.420  0.962
+11  ifeval_lg  0.442 0.089    0.267    0.617  0.000
+12    musr_lg -0.293 0.181   -0.647    0.061  0.104
+13 mmlupro_lg  0.004 0.049   -0.092    0.100  0.936
+
+Model C paths from ft
+          lhs    est    se ci.lower ci.upper pvalue
+10  ifeval_lg  0.466 0.188    0.097    0.836  0.013
+11     bbh_lg -0.015 0.263   -0.530    0.501  0.955
+12    math_lg  0.125 0.236   -0.338    0.587  0.597
+13    gpqa_lg -0.063 0.158   -0.373    0.248  0.692
+14    musr_lg -0.317 0.296   -0.898    0.263  0.284
+15 mmlupro_lg -0.009 0.256   -0.510    0.493  0.973
+
+=== Pair set: strict | pairs: 387 | lineages: 48 ===
+Child types:
+
+     chat models (RLHF, DPO, IFT, ...) fine-tuned on domain-specific datasets 
+                                   126                                    261 
+Base types:
+
+continuously pretrained              pretrained 
+                      4                     383 
+Lineage-clustered mean gain (logit units) and SE
+     ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+gain     0.734 -0.068   0.074  -0.066  -0.236     -0.172
+se       0.104  0.045   0.076   0.093   0.085      0.045
+Gain in pretrained-SD units:
+ ifeval_lg     bbh_lg    math_lg    gpqa_lg    musr_lg mmlupro_lg 
+     1.158     -0.058      0.061     -0.059     -0.330     -0.118 
+GLS proportional-to-loadings model (pure g gain): mu = -0.080, Q = 88.42, df = 5, p = 1.44e-17
+With loading uncertainty (2000 draws): Q 2.5/50/97.5% = 87.08 88.42 89.68 | p at those Q = 7.83e-18 1.45e-17 2.75e-17 
+
+MIMIC on stacked children + bases (n = 435 , clusters = 48 )
+  chisq.scaled df cfi.robust rmsea.robust  srmr      aic      bic
+A      111.201 11         NA        0.165 0.055 5099.342 5189.000
+B       44.200  8         NA        0.123 0.023 5025.191 5127.075
+C       32.311  6         NA        0.129 0.013 5017.631 5127.666
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+       Df    AIC    BIC   Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$C  6 5017.6 5127.7  53.027                                  
+fits$B  8 5025.2 5127.1  64.587     12.546       2   0.001887 ** 
+fits$A 11 5099.3 5189.0 144.738     91.512       3  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Model A paths from ft
+   lhs   est    se ci.lower ci.upper pvalue
+10   g 0.091 0.301   -0.498     0.68  0.762
+
+Model B paths from ft
+          lhs    est    se ci.lower ci.upper pvalue
+10          g  0.048 0.307   -0.553    0.650  0.875
+11  ifeval_lg  0.698 0.104    0.493    0.903  0.000
+12    musr_lg -0.496 0.160   -0.810   -0.182  0.002
+13 mmlupro_lg  0.051 0.052   -0.051    0.153  0.325
+
+Model C paths from ft
+          lhs    est    se ci.lower ci.upper pvalue
+10  ifeval_lg  0.815 0.236    0.351    1.278  0.001
+11     bbh_lg  0.040 0.349   -0.643    0.724  0.908
+12    math_lg  0.477 0.290   -0.092    1.046  0.100
+13    gpqa_lg  0.030 0.212   -0.385    0.444  0.889
+14    musr_lg -0.479 0.378   -1.220    0.262  0.205
+15 mmlupro_lg  0.106 0.343   -0.568    0.779  0.759
+
+=== Cohort with log-parameter control (n = 321 ) ===
+       chisq.scaled df cfi.robust rmsea.robust  srmr      aic      bic
+A            83.322 21      0.960        0.111 0.038 3487.428 3577.943
+C            34.186 11      0.987        0.086 0.018 3434.893 3563.122
+A_full      104.781 16      0.960        0.127 0.036 3483.753 3593.125
+C_full       21.635  6      0.992        0.094 0.012 3429.561 3576.647
+
+A vs C (size -> g only)
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+     Df    AIC    BIC   Chisq Chisq diff Df diff Pr(>Chisq)    
+cf$C 11 3434.9 3563.1  38.789                                  
+cf$A 21 3487.4 3577.9 111.324     46.568      10  1.132e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+A_full vs C_full (size -> every indicator)
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+          Df    AIC    BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+cf$C_full  6 3429.6 3576.6 23.457                                  
+cf$A_full 16 3483.8 3593.1 97.649     88.264      10  1.182e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+          lhs rhs   est    se pvalue
+10  ifeval_lg c24 0.266 0.101  0.008
+11  ifeval_lg c25 0.026 0.173  0.879
+13     bbh_lg c24 0.597 0.186  0.001
+14     bbh_lg c25 0.099 0.461  0.830
+16    math_lg c24 0.892 0.209  0.000
+17    math_lg c25 0.673 0.326  0.039
+19    gpqa_lg c24 0.540 0.169  0.001
+20    gpqa_lg c25 0.646 0.312  0.038
+22    musr_lg c24 0.136 0.115  0.235
+23    musr_lg c25 0.022 0.238  0.926
+25 mmlupro_lg c24 0.875 0.268  0.001
+26 mmlupro_lg c25 0.313 0.623  0.615
+
+=== Sensitivity: near-duplicate score vectors (identical to 4 dp): 54 ; clipped: 476 ; merged flag: 707 ===
+
+--- role | baseline | n: pretrained 324; finetuned 2442 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural      128.495 12      0.989        0.100 0.022
+metric          260.047 17      0.976        0.122 0.068
+scalar          406.079 22      0.962        0.137 0.091
+strict          372.897 28      0.960        0.123 0.097
+Delta CFI: -0.013 -0.014 -0.002  Delta RMSEA: 0.022 0.015 -0.014 
+
+--- cohort | baseline | n: c2022_23 71; c2024 167; c2025 83 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       26.604 18      0.994        0.075 0.027
+metric           76.459 28      0.967        0.139 0.121
+scalar          142.061 38      0.928        0.177 0.151
+strict          130.019 50      0.929        0.154 0.179
+Delta CFI: -0.027 -0.039 0.001  Delta RMSEA: 0.064 0.038 -0.023 
+
+--- role | no_clip | n: pretrained 247; finetuned 2173 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural      182.200 12      0.979        0.133 0.028
+metric          357.463 17      0.963        0.150 0.078
+scalar          543.941 22      0.943        0.162 0.105
+strict          446.850 28      0.943        0.145 0.107
+Delta CFI: -0.016 -0.02 0  Delta RMSEA: 0.017 0.012 -0.017 
+
+--- cohort | no_clip | n: c2022_23 47; c2024 129; c2025 69 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       42.379 18      0.979        0.146 0.032
+metric          104.872 28      0.941        0.194 0.143
+scalar          165.563 38      0.902        0.214 0.180
+strict          161.581 50      0.897        0.192 0.213
+Delta CFI: -0.038 -0.039 -0.005  Delta RMSEA: 0.048 0.02 -0.022 
+
+--- role | no_merged_flag | n: pretrained 318; finetuned 2341 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural      127.347 12      0.988        0.102 0.023
+metric          255.966 17      0.976        0.123 0.070
+scalar          398.565 22      0.960        0.139 0.093
+strict          367.199 28      0.959        0.125 0.100
+Delta CFI: -0.012 -0.016 -0.001  Delta RMSEA: 0.021 0.016 -0.014 
+
+--- cohort | no_merged_flag | n: c2022_23 71; c2024 161; c2025 83 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       26.587 18      0.994        0.076 0.027
+metric           77.022 28      0.966        0.142 0.123
+scalar          143.200 38      0.925        0.180 0.154
+strict          129.230 50      0.927        0.155 0.180
+Delta CFI: -0.028 -0.041 0.002  Delta RMSEA: 0.066 0.038 -0.025 
+
+--- role | no_dup | n: pretrained 322; finetuned 2412 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural      126.437 12      0.989        0.100 0.022
+metric          255.474 17      0.977        0.122 0.068
+scalar          403.160 22      0.961        0.137 0.091
+strict          370.242 28      0.960        0.123 0.097
+Delta CFI: -0.012 -0.016 -0.001  Delta RMSEA: 0.022 0.015 -0.014 
+
+--- cohort | no_dup | n: c2022_23 71; c2024 166; c2025 83 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       26.673 18      0.994        0.075 0.027
+metric           76.621 28      0.967        0.139 0.121
+scalar          142.472 38      0.928        0.177 0.151
+strict          130.476 50      0.928        0.154 0.180
+Delta CFI: -0.027 -0.039 0  Delta RMSEA: 0.064 0.038 -0.023 
+
+--- role | all_three | n: pretrained 242; finetuned 2054 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural      174.315 12      0.979        0.134 0.029
+metric          348.249 17      0.961        0.152 0.080
+scalar          534.814 22      0.941        0.165 0.109
+strict          437.510 28      0.940        0.148 0.111
+Delta CFI: -0.018 -0.02 -0.001  Delta RMSEA: 0.018 0.013 -0.017 
+
+--- cohort | all_three | n: c2022_23 47; c2024 124; c2025 69 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       42.281 18      0.978        0.146 0.032
+metric          104.144 28      0.940        0.195 0.141
+scalar          165.000 38      0.901        0.215 0.181
+strict          160.927 50      0.895        0.193 0.211
+Delta CFI: -0.038 -0.039 -0.006  Delta RMSEA: 0.049 0.02 -0.022 
+
+--- cohort | size band 0.5-15B | n: c2022_23 47; c2024 125; c2025 61 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       22.278 18      0.995        0.066 0.033
+metric           60.417 28      0.964        0.137 0.136
+scalar          141.232 38      0.900        0.196 0.174
+strict          125.159 50      0.905        0.168 0.238
+Delta CFI: -0.031 -0.064 0.005  Delta RMSEA: 0.071 0.059 -0.028 
+
+=== Observed SD by group and ratio (cluster bootstrap 95% CI) ===
+
+finetuned / pretrained
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+sd_ref     0.633  1.175   1.210   1.116   0.716      1.457
+sd_foc     1.007  1.069   1.352   1.050   0.943      1.173
+ratio      1.590  0.910   1.117   0.941   1.317      0.805
+lo         1.355  0.850   1.043   0.892   1.192      0.766
+hi         1.938  0.987   1.208   1.011   1.443      0.855
+
+c2024 / c2022_23
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+sd_ref     0.468  0.973   0.646   0.944   0.631      1.286
+sd_foc     0.659  1.121   1.284   1.197   0.760      1.358
+ratio      1.408  1.153   1.988   1.268   1.205      1.056
+lo         0.907  0.975   1.457   1.075   0.979      0.886
+hi         2.673  1.519   2.811   1.604   1.472      1.416
+
+c2025 / c2022_23
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+sd_ref     0.468  0.973   0.646   0.944   0.631      1.286
+sd_foc     0.587  1.110   1.094   0.957   0.671      1.394
+ratio      1.254  1.141   1.694   1.014   1.063      1.084
+lo         0.730  0.632   1.166   0.699   0.801      0.574
+hi         2.538  1.421   2.347   1.317   1.314      1.352

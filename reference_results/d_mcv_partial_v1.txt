@@ -1,0 +1,67 @@
+Retest reliabilities (logit scale)
+ ifeval     bbh    math    gpqa    musr mmlupro 
+  0.777   0.961   0.696   0.908   0.902   0.944 
+
+Pretrained g loadings
+ ifeval_lg     bbh_lg    math_lg    gpqa_lg    musr_lg mmlupro_lg 
+     0.545      0.983      0.847      0.783      0.579      0.978 
+
+Pairs: 540 bases: 80 
+Standardised mean gains (pooled pretrained SD units)
+ ifeval     bbh    math    gpqa    musr mmlupro 
+  0.981  -0.090   0.000   0.101  -0.252  -0.169 
+Paired t-tests (cluster-robust via lineage means)
+ifeval lineage-mean gain 0.41 t 4.46 p 2.7e-05 
+bbh lineage-mean gain -0.115 t -1.59 p 0.115 
+math lineage-mean gain -0.146 t -1.64 p 0.105 
+gpqa lineage-mean gain -0.125 t -1.31 p 0.194 
+musr lineage-mean gain -0.055 t -0.68 p 0.5 
+mmlupro lineage-mean gain -0.197 t -2.97 p 0.0039 
+
+MCV r (uncorrected): -0.547  r (reliability-corrected): -0.48 
+Cluster-bootstrap 95% CI (corrected): -0.737 -0.335 
+Exact permutation p (two-sided): 0.3972222 
+
+#### (i) role, full scalar | groups: pretrained, finetuned | freed:  
+chisq.scaled           df   cfi.robust rmsea.robust         srmr 
+     406.078       22.000        0.962        0.137        0.091 
+   group   est    se pvalue
+23     1 0.000 0.000     NA
+46     2 0.555 0.081      0
+   group   est
+16     1 0.492
+39     2 0.373
+
+#### (i) role, partial | groups: pretrained, finetuned | freed: g=~musr_lg; g=~mmlupro_lg; ifeval_lg~1; musr_lg~1 
+chisq.scaled           df   cfi.robust rmsea.robust         srmr 
+     276.803       18.000        0.975        0.123        0.058 
+   group  est    se pvalue
+23     1 0.00 0.000     NA
+46     2 0.47 0.073      0
+   group   est
+16     1 0.380
+39     2 0.327
+
+#### (ii) cohort, full scalar | groups: c2022_23, c2024, c2025 | freed:  
+chisq.scaled           df   cfi.robust rmsea.robust         srmr 
+     142.061       38.000        0.928        0.177        0.151 
+   group   est    se pvalue
+23     1 0.000 0.000     NA
+46     2 0.259 0.089  0.004
+69     3 0.001 0.142  0.996
+   group   est
+16     1 0.071
+39     2 0.101
+62     3 0.100
+
+#### (ii) cohort, partial | groups: c2022_23, c2024, c2025 | freed: gpqa_lg~1; math_lg~1; g=~gpqa_lg; bbh_lg~1 
+chisq.scaled           df   cfi.robust rmsea.robust         srmr 
+      67.945       30.000        0.971        0.125        0.114 
+   group   est    se pvalue
+23     1 0.000 0.000     NA
+46     2 0.263 0.095  0.006
+69     3 0.005 0.147  0.976
+   group   est
+16     1 0.071
+39     2 0.103
+62     3 0.103

@@ -1,0 +1,8 @@
+data/hf/
+data/epoch/extracted/
+derived/
+out/
+fig/
+*.log
+.Rhistory
+__pycache__/

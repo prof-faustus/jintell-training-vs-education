@@ -1,0 +1,62 @@
+discovery n= 2036  holdout n= 2460 
+
+== M1 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      163.262         9.000         0.000         0.956         0.927 
+ rmsea.robust          srmr           bic 
+        0.176         0.042    -34084.058 
+converged TRUE 
+
+== M2 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       59.031         5.000         0.000         0.978         0.956 
+ rmsea.robust          srmr           bic 
+        0.156         0.024    -32319.479 
+converged TRUE 
+
+== M3 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      142.969         8.000         0.000         0.960         0.925 
+ rmsea.robust          srmr           bic 
+        0.178         0.039    -34130.666 
+converged TRUE 
+
+== M3b 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      117.143         7.000         0.000         0.968         0.932 
+ rmsea.robust          srmr           bic 
+        0.169         0.036    -34234.443 
+converged TRUE 
+
+== M4 added: ifeval ~~ gpqa bbh ~~ math ifeval ~~ musr 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       69.133         6.000         0.000         0.985         0.963 
+ rmsea.robust          srmr           bic 
+        0.125         0.025    -34451.790 
+
+=== HOLDOUT CONFIRMATION ===
+
+ M2 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      126.313         5.000         0.000         0.971         0.942 
+ rmsea.robust          srmr           bic 
+        0.177         0.025    -40053.971 
+      rhs est.std    se
+1     bbh   0.972 0.004
+2    math   0.745 0.022
+3    gpqa   0.859 0.005
+4    musr   0.693 0.012
+5 mmlupro   0.985 0.001
+
+M4 holdout
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      167.135         6.000         0.000         0.980         0.951 
+ rmsea.robust          srmr           bic 
+        0.140         0.029    -42597.009 
+      rhs est.std    se
+1  ifeval   0.644 0.014
+2     bbh   0.978 0.004
+3    math   0.768 0.019
+4    gpqa   0.859 0.006
+5    musr   0.694 0.012
+6 mmlupro   0.979 0.001

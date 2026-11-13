@@ -1,0 +1,43 @@
+Strict pairs: lineage-level one-sample t-tests (df = n_lineages - 1)
+ifeval_lg   gain 0.734  t(47) = 7.05  p = 6.8e-09
+bbh_lg      gain -0.068  t(47) = -1.51  p = 0.14
+math_lg     gain 0.074  t(47) = 0.98  p = 0.33
+gpqa_lg     gain -0.066  t(47) = -0.71  p = 0.48
+musr_lg     gain -0.236  t(47) = -2.77  p = 0.0079
+mmlupro_lg  gain -0.172  t(47) = -3.78  p = 0.00044
+
+Base selection: bases used by strict fine-tunes (n = 48 ) vs other pretrained models (n = 276 ), SD units of the pretrained pool; Welch t
+ifeval_lg   diff 0.233 SD  t = 2.01  p = 0.047
+bbh_lg      diff 0.740 SD  t = 4.85  p = 8.3e-06
+math_lg     diff 0.888 SD  t = 5.52  p = 7.3e-07
+gpqa_lg     diff 0.594 SD  t = 3.32  p = 0.0016
+musr_lg     diff 0.652 SD  t = 4.29  p = 6.1e-05
+mmlupro_lg  diff 0.734 SD  t = 4.84  p = 8.6e-06
+factor score: bases 0.642 vs others -0.112, t = 4.90, p = 6.9e-06
+
+Role sequence excluding continuously pretrained | n: 267/2442 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural      125.316 12      0.989        0.100 0.022
+metric          313.339 17      0.973        0.132 0.078
+scalar          468.338 22      0.958        0.143 0.102
+strict          421.211 28      0.957        0.129 0.114
+Delta CFI: -0.016 -0.015 -0.001 
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+                Df   AIC   BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$configural 12 34232 34480 178.25                                  
+fits$metric     17 34465 34684 421.20    210.059       5    < 2e-16 ***
+fits$scalar     22 34676 34865 642.20    151.056       5    < 2e-16 ***
+fits$strict     28 34694 34847 671.74     12.235       6    0.05693 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Cohort sample orgs: 96  role clusters: 1888 
+
+Factor-score SD 0.993; gap in SD units 0.759

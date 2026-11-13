@@ -1,0 +1,41 @@
+Null mode: misfit 
+Design: role  R = 500  groups: finetuned 2442; pretrained 324  clusters: 1888 
+Elapsed: 38.44216 mins 
+
+Observed fit sequence
+             configural   metric   scalar   strict
+chisq.scaled   128.4949 260.0468 406.0787 372.8971
+df              12.0000  17.0000  22.0000  28.0000
+cfi.robust       0.9887   0.9765   0.9615   0.9605
+rmsea.robust     0.1004   0.1218   0.1370   0.1231
+srmr             0.0221   0.0684   0.0910   0.0970
+
+Bollen-Stine transformed data (exact mode: invariance fits perfectly; misfit mode: configural misfit retained, constraints add no misfit beyond it)
+             configural   metric   scalar  strict
+chisq.scaled   122.4438 117.4309 106.0154 93.0401
+df              12.0000  17.0000  22.0000 28.0000
+cfi.robust       0.9891   0.9897   0.9904  0.9915
+rmsea.robust     0.0984   0.0805   0.0681  0.0567
+srmr             0.0223   0.0223   0.0223  0.0223
+
+Converged replicates: 500 of 500 
+          dCFI_m  dCFI_s  dCFI_t dRMSEA_m dRMSEA_s dRMSEA_t dSRMR_m dSRMR_s
+1%       -0.0013 -0.0023 -0.0026  -0.0205  -0.0138  -0.0120  0.0002 -0.0008
+5%       -0.0008 -0.0014 -0.0017  -0.0193  -0.0130  -0.0113  0.0008 -0.0004
+50%       0.0000  0.0000  0.0001  -0.0164  -0.0106  -0.0090  0.0033  0.0011
+95%       0.0004  0.0007  0.0009  -0.0132  -0.0060  -0.0041  0.0084  0.0044
+99%       0.0005  0.0008  0.0011  -0.0112  -0.0033  -0.0013  0.0103  0.0057
+observed -0.0122 -0.0150 -0.0010   0.0214   0.0152  -0.0139  0.0463  0.0226
+         dSRMR_t
+1%       -0.0013
+5%       -0.0007
+50%       0.0013
+95%       0.0056
+99%       0.0077
+observed  0.0060
+
+Empirical p (share of null replicates at least as bad as observed)
+  dCFI_m   dCFI_s   dCFI_t dRMSEA_m dRMSEA_s dRMSEA_t  dSRMR_m  dSRMR_s 
+   0.000    0.000    0.124    0.000    0.000    1.000    0.000    0.000 
+ dSRMR_t 
+   0.048 

@@ -1,0 +1,62 @@
+discovery n= 2036  holdout n= 2460 
+
+== M1 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      141.378         9.000         0.000         0.959         0.932 
+ rmsea.robust          srmr           bic 
+        0.165         0.040     25858.137 
+converged TRUE 
+
+== M2 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       56.294         5.000         0.000         0.978         0.957 
+ rmsea.robust          srmr           bic 
+        0.152         0.026     21167.870 
+converged TRUE 
+
+== M3 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       91.110         8.000         0.000         0.975         0.953 
+ rmsea.robust          srmr           bic 
+        0.137         0.031     25671.418 
+converged TRUE 
+
+== M3b 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       77.319         7.000         0.000         0.978         0.952 
+ rmsea.robust          srmr           bic 
+        0.138         0.030     25641.878 
+converged TRUE 
+
+== M4 added: ifeval_lg ~~ math_lg gpqa_lg ~~ musr_lg bbh_lg ~~ musr_lg 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       66.532         6.000         0.000         0.990         0.974 
+ rmsea.robust          srmr           bic 
+        0.101         0.021     25487.528 
+
+=== HOLDOUT CONFIRMATION ===
+
+ M2 
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+      179.245         5.000         0.000         0.974         0.949 
+ rmsea.robust          srmr           bic 
+        0.166         0.029     23545.172 
+         rhs est.std    se
+1     bbh_lg   0.982 0.002
+2    math_lg   0.802 0.017
+3    gpqa_lg   0.841 0.008
+4    musr_lg   0.666 0.012
+5 mmlupro_lg   0.975 0.004
+
+M4 holdout
+ chisq.scaled            df pvalue.scaled    cfi.robust    tli.robust 
+       75.614         6.000         0.000         0.993         0.982 
+ rmsea.robust          srmr           bic 
+        0.084         0.019     28705.716 
+         rhs est.std    se
+1  ifeval_lg   0.622 0.016
+2     bbh_lg   0.979 0.003
+3    math_lg   0.807 0.016
+4    gpqa_lg   0.838 0.008
+5    musr_lg   0.638 0.012
+6 mmlupro_lg   0.979 0.004

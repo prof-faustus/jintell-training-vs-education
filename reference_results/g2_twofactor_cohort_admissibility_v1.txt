@@ -1,0 +1,15 @@
+ | converged TRUE | negative variances: 0 
+factor correlations by group: -0.536 -0.642 -0.297 
+smallest eigenvalue of vcov: -0.0005018329 
+loadings | converged TRUE | negative variances: 1 
+   group     lhs    est
+36     2 math_lg -0.032
+factor correlations by group: -0.738 -0.92 -0.868 
+smallest eigenvalue of vcov: -0.01307392 
+loadings+intercepts | converged TRUE | negative variances: 3 
+   group     lhs    est
+11     1 math_lg -0.281
+36     2 math_lg -0.226
+61     3 math_lg -0.110
+factor correlations by group: -0.718 -0.889 -0.849 
+smallest eigenvalue of vcov: -0.0001757447 

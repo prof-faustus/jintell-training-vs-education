@@ -1,0 +1,25 @@
+Clipped values set to missing | n: 161 
+
+le2025  y2026 
+    88     73 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       32.717 10      0.948        0.336 0.054
+metric           57.927 14      0.953        0.270 0.097
+scalar           64.431 18      0.945        0.256 0.119
+strict           74.622 23      0.926        0.264 0.136
+Delta CFI: 0.005 -0.008 -0.019 
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+                Df    AIC    BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$configural 10 1317.6 1410.0 33.931                                  
+fits$metric     14 1335.2 1415.4 59.596     25.459       4  4.066e-05 ***
+fits$scalar     18 1332.3 1400.1 64.617      5.505       4    0.23929    
+fits$strict     23 1334.8 1387.1 77.100     10.927       5    0.05284 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

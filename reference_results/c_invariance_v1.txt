@@ -1,0 +1,47 @@
+
+
+######## (i) pretrained vs fine-tuned (merges excluded) ########
+
+ finetuned pretrained 
+      2442        324 
+           chisq.scaled df cfi.robust tli.robust rmsea.robust  srmr
+configural      128.495 12      0.989      0.972        0.100 0.022
+metric          260.047 17      0.976      0.959        0.122 0.068
+scalar          406.079 22      0.962      0.948        0.137 0.091
+strict          372.897 28      0.960      0.958        0.123 0.097
+
+Delta CFI (robust): -0.013 -0.014 -0.002 
+Delta RMSEA: 0.022 0.015 -0.014 
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+                Df   AIC   BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$configural 12 35044 35293 184.53                                  
+fits$metric     17 35223 35442 373.24    131.655       5    < 2e-16 ***
+fits$scalar     22 35443 35633 603.58    138.756       5    < 2e-16 ***
+fits$strict     28 35462 35616 633.97     12.233       6    0.05696 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Score tests on scalar constraints (top)
+               lab     X2 p.value
+4     g =~ musr_lg 74.941   0.000
+6    ifeval_lg ~1  43.143   0.000
+5  g =~ mmlupro_lg 42.585   0.000
+10     musr_lg ~1  39.153   0.000
+7       bbh_lg ~1  16.975   0.000
+8      math_lg ~1  15.372   0.000
+1      g =~ bbh_lg 12.764   0.000
+11  mmlupro_lg ~1   7.370   0.007
+
+Latent means/variances (scalar)
+   group op    est    se pvalue
+16     1 ~~  0.373 0.029      0
+23     1 ~1  0.000 0.000     NA
+39     2 ~~  0.492 0.040      0
+46     2 ~1 -0.555 0.081      0

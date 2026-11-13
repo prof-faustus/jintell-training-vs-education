@@ -1,0 +1,156 @@
+
+######## role | n: pretrained 324; finetuned 2442 
+Pooled-SD rule: Nye & Drasgow Eq. 4 over all groups. Signed index > 0 means the focal group scores lower than the reference at equal g.
+
+Referent ifeval_lg | focal finetuned 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS          0  0.869   0.399   0.787   0.847      0.870
+signed         0 -0.683  -0.226  -0.683  -0.842     -0.566
+
+Referent bbh_lg | focal finetuned 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.587      0   0.356   0.132   0.466      0.170
+signed     0.462      0   0.337  -0.122  -0.377      0.103
+
+Referent math_lg | focal finetuned 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.328  0.431       0   0.462   0.679      0.402
+signed     0.185 -0.409       0  -0.458  -0.655     -0.297
+
+Referent gpqa_lg | focal finetuned 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.648  0.161   0.463       0   0.360      0.316
+signed     0.562  0.148   0.459       0  -0.276      0.248
+
+Referent musr_lg | focal finetuned 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.841  0.685   0.823   0.435       0      0.835
+signed     0.836  0.554   0.793   0.333       0      0.645
+
+Referent mmlupro_lg | focal finetuned 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.601  0.174   0.338   0.265   0.580          0
+signed     0.391 -0.105   0.250  -0.208  -0.448          0
+
+Range of dMACS across referents | focal finetuned 
+            [,1]  [,2]
+ifeval_lg  0.328 0.841
+bbh_lg     0.161 0.869
+math_lg    0.338 0.823
+gpqa_lg    0.132 0.787
+musr_lg    0.360 0.847
+mmlupro_lg 0.170 0.870
+
+Primary referent: bbh_lg | cluster bootstrap B = 300 
+usable bootstrap replicates: 300 
+
+Focal finetuned (referent row is 0 by construction)
+           dMACS    lo    hi signed   s_lo  s_hi
+ifeval_lg  0.587 0.485 0.867  0.462 -0.788 0.555
+bbh_lg     0.000 0.000 0.000  0.000  0.000 0.000
+math_lg    0.356 0.278 0.486  0.337 -0.475 0.419
+gpqa_lg    0.132 0.044 0.240 -0.122 -0.218 0.122
+musr_lg    0.466 0.242 0.610 -0.377 -0.501 0.203
+mmlupro_lg 0.170 0.104 0.233  0.103 -0.022 0.151
+
+######## cohort | n: c2022_23 71; c2024 167; c2025 83 
+Pooled-SD rule: Nye & Drasgow Eq. 4 over all groups. Signed index > 0 means the focal group scores lower than the reference at equal g.
+
+Referent ifeval_lg | focal c2024 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS          0  0.502   0.108   0.336   0.328      0.589
+signed         0 -0.199   0.069  -0.173  -0.298     -0.063
+
+Referent ifeval_lg | focal c2025 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS          0  0.151   0.453   0.693   0.276      0.151
+signed         0 -0.142  -0.417  -0.660  -0.271     -0.151
+
+Referent bbh_lg | focal c2024 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.277      0   0.452   0.117   0.230      0.194
+signed     0.110      0   0.264   0.002  -0.175      0.127
+
+Referent bbh_lg | focal c2025 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.083      0   0.306   0.561   0.184      0.051
+signed     0.079      0  -0.277  -0.535  -0.183     -0.016
+
+Referent math_lg | focal c2024 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.061  0.463       0   0.317   0.352      0.521
+signed    -0.039 -0.270       0  -0.235  -0.342     -0.131
+
+Referent math_lg | focal c2025 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.255  0.313       0   0.291   0.063      0.309
+signed     0.235  0.284       0  -0.286  -0.008      0.254
+
+Referent gpqa_lg | focal c2024 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.211  0.133   0.353       0   0.189      0.300
+signed     0.109 -0.002   0.262       0  -0.177      0.124
+
+Referent gpqa_lg | focal c2025 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.436  0.639   0.324       0   0.217      0.610
+signed     0.415  0.610   0.319       0   0.194      0.565
+
+Referent musr_lg | focal c2024 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.293  0.372   0.557   0.268       0      0.546
+signed     0.266  0.284   0.541   0.251       0      0.397
+
+Referent musr_lg | focal c2025 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.246  0.298   0.099   0.309       0      0.278
+signed     0.242  0.297   0.012  -0.275       0      0.267
+
+Referent mmlupro_lg | focal c2024 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.341  0.204   0.535   0.277   0.355          0
+signed     0.037 -0.133   0.134  -0.115  -0.257          0
+
+Referent mmlupro_lg | focal c2025 
+       ifeval_lg bbh_lg math_lg gpqa_lg musr_lg mmlupro_lg
+dMACS      0.088  0.054   0.317   0.563   0.180          0
+signed     0.088  0.017  -0.261  -0.521  -0.173          0
+
+Range of dMACS across referents | focal c2024 
+            [,1]  [,2]
+ifeval_lg  0.061 0.341
+bbh_lg     0.133 0.502
+math_lg    0.108 0.557
+gpqa_lg    0.117 0.336
+musr_lg    0.189 0.355
+mmlupro_lg 0.194 0.589
+
+Range of dMACS across referents | focal c2025 
+            [,1]  [,2]
+ifeval_lg  0.083 0.436
+bbh_lg     0.054 0.639
+math_lg    0.099 0.453
+gpqa_lg    0.291 0.693
+musr_lg    0.063 0.276
+mmlupro_lg 0.051 0.610
+
+Primary referent: mmlupro_lg | cluster bootstrap B = 300 
+usable bootstrap replicates: 296 
+
+Focal c2024 (referent row is 0 by construction)
+           dMACS    lo    hi signed   s_lo  s_hi
+ifeval_lg  0.341 0.065 0.720  0.037 -0.487 0.393
+bbh_lg     0.204 0.027 0.364 -0.133 -0.281 0.140
+math_lg    0.535 0.124 1.046  0.134 -0.781 0.490
+gpqa_lg    0.277 0.109 0.781 -0.115 -0.736 0.449
+musr_lg    0.355 0.050 0.708 -0.257 -0.537 0.303
+mmlupro_lg 0.000 0.000 0.000  0.000  0.000 0.000
+
+Focal c2025 (referent row is 0 by construction)
+           dMACS    lo    hi signed   s_lo  s_hi
+ifeval_lg  0.088 0.051 0.720  0.088 -0.445 0.471
+bbh_lg     0.054 0.025 0.349  0.017 -0.271 0.258
+math_lg    0.317 0.091 0.934 -0.261 -0.782 0.594
+gpqa_lg    0.563 0.154 0.856 -0.521 -0.808 0.521
+musr_lg    0.180 0.046 0.803 -0.173 -0.639 0.305
+mmlupro_lg 0.000 0.000 0.000  0.000  0.000 0.000

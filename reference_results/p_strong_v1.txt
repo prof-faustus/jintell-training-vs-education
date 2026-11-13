@@ -1,0 +1,84 @@
+Bartlett weights (pretrained M4, var(g)=1): ifeval 0.003; bbh 0.460; math 0.044; gpqa 0.032; musr 0.005; mmlupro 0.277 
+Check: sum(wB * lam) = 1 (must be 1)
+
+=== 1. Strict pair set: equivalence test ===
+
+  (usable bootstrap replicates: 2000 of 2000)
+[strict, all] pairs 387, lineages 48
+  Q(5) = 88.4, p = 1.4e-17
+  g change, GLS projection: -0.080 (model SE 0.030); bootstrap 95% CI [-0.175, -0.000]; 90% CI [-0.153, -0.012]
+  g change, Bartlett scores:  -0.077 (SE 0.032); bootstrap 95% CI [-0.142, -0.018]; 90% CI [-0.132, -0.028]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.153, Bartlett 0.132 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval +1.16; bbh -0.06; math +0.06; gpqa -0.06; musr -0.33; mmlupro -0.12 
+
+=== 2. Subgroups and depth ===
+
+  (usable bootstrap replicates: 2000 of 2000)
+[chat models (RLHF, DPO, IFT, ...)] pairs 126, lineages 40
+  Q(5) = 152.2, p = 4.5e-31
+  g change, GLS projection: -0.117 (model SE 0.054); bootstrap 95% CI [-0.463, 0.120]; 90% CI [-0.392, 0.082]
+  g change, Bartlett scores:  -0.109 (SE 0.057); bootstrap 95% CI [-0.235, -0.013]; 90% CI [-0.215, -0.026]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.392, Bartlett 0.215 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval +1.33; bbh -0.09; math +0.05; gpqa -0.15; musr -0.43; mmlupro -0.14 
+
+  (usable bootstrap replicates: 2000 of 2000)
+[fine-tuned on domain-specific datasets] pairs 261, lineages 32
+  Q(5) = 51.4, p = 7.1e-10
+  g change, GLS projection: -0.079 (model SE 0.031); bootstrap 95% CI [-0.195, 0.017]; 90% CI [-0.174, -0.004]
+  g change, Bartlett scores:  -0.065 (SE 0.034); bootstrap 95% CI [-0.133, -0.001]; 90% CI [-0.120, -0.013]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.174, Bartlett 0.120 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval +1.30; bbh -0.03; math +0.12; gpqa -0.09; musr -0.30; mmlupro -0.13 
+
+  (usable bootstrap replicates: 2000 of 2000)
+[depth 1-1] pairs 170, lineages 48
+  Q(5) = 87.9, p = 1.9e-17
+  g change, GLS projection: -0.092 (model SE 0.042); bootstrap 95% CI [-0.216, 0.017]; 90% CI [-0.185, -0.002]
+  g change, Bartlett scores:  -0.097 (SE 0.046); bootstrap 95% CI [-0.188, -0.013]; 90% CI [-0.172, -0.024]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.185, Bartlett 0.172 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval +1.21; bbh -0.08; math +0.08; gpqa -0.06; musr -0.28; mmlupro -0.14 
+
+  (usable bootstrap replicates: 2000 of 2000)
+[depth 2-2] pairs 167, lineages 24
+  Q(5) = 134.2, p = 3.1e-27
+  g change, GLS projection: -0.207 (model SE 0.040); bootstrap 95% CI [-0.540, 0.114]; 90% CI [-0.472, 0.076]
+  g change, Bartlett scores:  -0.076 (SE 0.050); bootstrap 95% CI [-0.180, 0.007]; 90% CI [-0.161, -0.003]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.472, Bartlett 0.161 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval +1.50; bbh -0.03; math +0.09; gpqa -0.27; musr -0.52; mmlupro -0.14 
+
+  (usable bootstrap replicates: 1911 of 2000)
+[depth 3-8] pairs 50, lineages 13
+  Q(5) = 138.9, p = 3.1e-28
+  g change, GLS projection: -0.198 (model SE 0.043); bootstrap 95% CI [-0.896, 0.941]; 90% CI [-0.651, 0.517]
+  g change, Bartlett scores:  -0.113 (SE 0.075); bootstrap 95% CI [-0.256, 0.021]; 90% CI [-0.236, 0.002]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.651, Bartlett 0.236 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval +1.64; bbh -0.08; math +0.13; gpqa -0.41; musr -0.74; mmlupro -0.16 
+
+Dose-response across depth (child-level regression on depth, lineage-clustered by lineage means of depth groups):
+  ifeval_lg   slope per depth step +0.075
+  bbh_lg      slope per depth step +0.029
+  math_lg     slope per depth step +0.039
+  gpqa_lg     slope per depth step +0.053
+  musr_lg     slope per depth step -0.319
+  mmlupro_lg  slope per depth step -0.010
+  Bartlett g   slope per depth step +0.014
+      ifeval_lg.dd$gen[ii] bbh_lg.dd$gen[ii] math_lg.dd$gen[ii]
+2.5%                -0.187            -0.073             -0.106
+97.5%                0.368             0.122              0.167
+      gpqa_lg.dd$gen[ii] musr_lg.dd$gen[ii] mmlupro_lg.dd$gen[ii] g.dd$gen[ii]
+2.5%              -0.203             -0.523                -0.079       -0.070
+97.5%              0.377             -0.107                 0.064        0.094
+
+=== 3. Negative control: bfloat16 vs float16 evaluations of the same model ===
+
+  (usable bootstrap replicates: 2000 of 2000)
+[precision duplicates (fp16 - bf16), each model its own cluster] pairs 79, lineages 79
+  Q(5) = 2.6, p = 0.77
+  g change, GLS projection: 0.049 (model SE 0.030); bootstrap 95% CI [-0.010, 0.120]; 90% CI [-0.007, 0.106]
+  g change, Bartlett scores:  0.042 (SE 0.033); bootstrap 95% CI [-0.006, 0.114]; 90% CI [-0.001, 0.104]
+  TOST: smallest symmetric bound with 90% CI inside: GLS 0.106, Bartlett 0.104 (pretrained g SD units)
+  benchmark gains (pretrained SD): ifeval -0.06; bbh +0.05; math +0.08; gpqa +0.00; musr +0.07; mmlupro +0.02 
+
+=== 4. Positive control: pure g gain injected into the real pair structure ===
+  injected g gain 0.0 SD: GLS mu mean 0.001 (2.5-97.5%: -0.061, 0.057); Bartlett mean -0.001; Q rejection rate at .05 = 0.102
+  injected g gain 0.2 SD: GLS mu mean 0.201 (2.5-97.5%: 0.137, 0.256); Bartlett mean 0.199; Q rejection rate at .05 = 0.114
+  injected g gain 0.5 SD: GLS mu mean 0.499 (2.5-97.5%: 0.424, 0.573); Bartlett mean 0.498; Q rejection rate at .05 = 0.161

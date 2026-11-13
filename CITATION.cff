@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Training versus Education in Machines: analysis code"
+authors:
+  - family-names: Wright
+    given-names: Craig S.
+    orcid: "https://orcid.org/0000-0001-9374-0507"
+    affiliation: "University of Exeter Business School"
+license: MIT
+date-released: 2026-11-13

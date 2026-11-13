@@ -1,0 +1,21 @@
+                      metric.cfi.robust scalar.cfi.robust
+role baseline                 -0.012236         -0.014965
+cohort baseline               -0.026682         -0.039227
+role no_clip                  -0.016853         -0.019059
+cohort no_clip                -0.037685         -0.038598
+role no_merged_flag           -0.012508         -0.015582
+cohort no_merged_flag         -0.027971         -0.040821
+role no_dup                   -0.012217         -0.015294
+cohort no_dup                 -0.026685         -0.039262
+role all_three                -0.017516         -0.020352
+cohort all_three              -0.038041         -0.039452
+role pretrained_only          -0.016230         -0.014623
+cohort size_band              -0.030251         -0.064041
+role M4+ 1                    -0.012400         -0.014469
+cohort M4+ 1                  -0.026305         -0.037291
+role M4+ 3                    -0.010461         -0.012927
+cohort M4+ 3                  -0.024283         -0.033182
+role 2F                       -0.007405         -0.007174
+cohort 2F                     -0.007788         -0.022621
+cohort exact null: share dCFI_m <= -.01: 0.1285141  dCFI_s <= -.01: 0.1703407 
+role exact null: min dCFI_m -0.001981644 min dCFI_s -0.004501385 

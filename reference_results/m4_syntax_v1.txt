@@ -1,0 +1,4 @@
+g =~ ifeval+bbh+math+gpqa+musr+mmlupro 
+ ifeval ~~ gpqa 
+ bbh ~~ math 
+ ifeval ~~ musr
