@@ -1,0 +1,24 @@
+
+[best score per model group | all scores] n = 165 (91/74); usable permutations 1000 of 1000
+  configural scaled chi2(10) = 19.67, p = 0.033 (probability of a chi-square this large under a correct model)
+  metric: scaled dchi2(4) = 56.6, asymptotic p = 1.5e-11, permutation p = 0.0010; dCFI = -0.077, permutation p = 0.0010
+  scalar: scaled dchi2(4) = 4.4, asymptotic p = 0.36, permutation p = 0.4286; dCFI = +0.002, permutation p = 0.9071
+  permutation 95th/99th percentiles of metric dchi2: 15.2 / 25.0
+
+[best score per model group | floor-clipped scores as missing] n = 161 (88/73); usable permutations 500 of 500
+  configural scaled chi2(10) = 32.72, p = 0.000 (probability of a chi-square this large under a correct model)
+  metric: scaled dchi2(4) = 25.5, asymptotic p = 4.1e-05, permutation p = 0.0040; dCFI = +0.005, permutation p = 0.6228
+  scalar: scaled dchi2(4) = 5.5, asymptotic p = 0.24, permutation p = 0.2375; dCFI = -0.007, permutation p = 0.0778
+  permutation 95th/99th percentiles of metric dchi2: 11.1 / 16.6
+
+[median score per model group | all scores] n = 165 (91/74); usable permutations 500 of 500
+  configural scaled chi2(10) = 39.08, p = 0.000 (probability of a chi-square this large under a correct model)
+  metric: scaled dchi2(4) = 42.2, asymptotic p = 1.5e-08, permutation p = 0.0020; dCFI = -0.096, permutation p = 0.0020
+  scalar: scaled dchi2(4) = 7.1, asymptotic p = 0.13, permutation p = 0.1597; dCFI = +0.000, permutation p = 0.4072
+  permutation 95th/99th percentiles of metric dchi2: 14.6 / 21.2
+
+[median score per model group | floor-clipped scores as missing] n = 161 (88/73); usable permutations 499 of 500
+  configural scaled chi2(10) = 63.66, p = 0.000 (probability of a chi-square this large under a correct model)
+  metric: scaled dchi2(4) = 15.7, asymptotic p = 0.0034, permutation p = 0.0160; dCFI = +0.014, permutation p = 0.9660
+  scalar: scaled dchi2(4) = 9.9, asymptotic p = 0.042, permutation p = 0.0620; dCFI = -0.024, permutation p = 0.0040
+  permutation 95th/99th percentiles of metric dchi2: 11.6 / 16.6

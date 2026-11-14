@@ -1,0 +1,144 @@
+=== (A) Declared model type against the chat-template flag (all 4496 models) ===
+                                        chat_template
+type                                     False True
+  base merges and moerges                  984  731
+  chat models (RLHF, DPO, IFT, ...)         46  651
+  continuously pretrained                   36   21
+  fine-tuned on domain-specific datasets   823  922
+  multimodal                                 4    4
+  other                                      7    0
+  pretrained                               235   32
+Share with chat template: chat models 0.934; domain fine-tunes 0.528; pretrained 0.120; continuously pretrained 0.368
+Pretrained models without upload date (excluded from the cohort contrast): 3 
+
+=== (B) Evaluation format: models evaluated without a chat template only ===
+Training-role contrast, no chat template | n: 271/869 | lineage clusters: 883 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       71.225 12      0.991        0.099 0.012
+metric          199.912 17      0.972        0.145 0.117
+scalar          227.680 22      0.967        0.140 0.123
+strict          273.530 28      0.951        0.151 0.188
+Delta CFI: -0.019 -0.005 -0.016 
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+                Df   AIC   BIC   Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$configural 12 13108 13320  80.379                                  
+fits$metric     17 13239 13425 221.135    133.739       5  < 2.2e-16 ***
+fits$scalar     22 13279 13440 271.429     33.879       5  2.516e-06 ***
+fits$strict     28 13400 13532 404.655     52.605       6  1.409e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+[Strict pairs, descendant and base both without chat template] pairs 77, lineages 19, bootstrap units 19 (usable 2000 of 2000)
+  Q(5) = 16.7 (chi2 p = 0.0051)
+  IFEval-implied minus rest-implied factor change: +1.446, t(18) = 3.24, p = 0.0045
+  bartlett  -0.064  95% CI [-0.152, +0.017]
+  gls       -0.156  95% CI [-0.234, -0.055]
+  uls       -0.019  95% CI [-0.135, +0.083]
+  median    -0.003  95% CI [-0.141, +0.152]
+  benchmark gains (pretrained SD, t 95% CI across lineages): ifeval +0.76 [+0.23, +1.29]; bbh -0.03 [-0.14, +0.07]; math +0.01 [-0.16, +0.18]; gpqa -0.02 [-0.23, +0.19]; musr +0.06 [-0.20, +0.33]; mmlupro -0.12 [-0.18, -0.06] 
+
+[Strict pairs, descendant with chat template] pairs 308, lineages 46, bootstrap units 46 (usable 2000 of 2000)
+  Q(5) = 117.1 (chi2 p = 1.3e-23)
+  IFEval-implied minus rest-implied factor change: +2.515, t(45) = 8.40, p = 9.1e-11
+  bartlett  -0.077  95% CI [-0.145, -0.017]
+  gls       -0.073  95% CI [-0.194, +0.026]
+  uls       -0.030  95% CI [-0.103, +0.043]
+  median    -0.090  95% CI [-0.149, +0.019]
+  benchmark gains (pretrained SD, t 95% CI across lineages): ifeval +1.32 [+0.99, +1.66]; bbh -0.06 [-0.14, +0.02]; math +0.07 [-0.06, +0.21]; gpqa -0.10 [-0.28, +0.08]; musr -0.40 [-0.65, -0.14]; mmlupro -0.12 [-0.19, -0.05] 
+
+Depth slopes (lineage-bootstrap 95% CI) by evaluation format of the descendant, pretrained SD per generation step
+  chat template True (pairs 308, lineages 46, depths 1-8): ifeval +0.08 [-0.24, +0.33]; bbh +0.02 [-0.06, +0.08]; math +0.04 [-0.05, +0.12]; gpqa +0.07 [-0.15, +0.46]; musr -0.21 [-0.46, -0.08]; mmlupro -0.01 [-0.10, +0.04] 
+  chat template False (pairs 79, lineages 20, depths 1-4): ifeval +0.22 [+0.07, +0.47]; bbh +0.01 [-0.15, +0.17]; math +0.05 [-0.10, +0.22]; gpqa -0.39 [-0.58, -0.04]; musr -0.04 [-0.23, +0.23]; mmlupro +0.05 [-0.08, +0.16] 
+
+=== (C) Homogeneity of descendant-base pairs ===
+Of 387 strict pairs: same architecture 363; parameter count within 5% 255; same evaluation precision 341; full weights (not adapter) 377; all four 201
+
+[Strict pairs with same architecture, size within 5%, same precision, full weights] pairs 201, lineages 43, bootstrap units 43 (usable 2000 of 2000)
+  Q(5) = 101.8 (chi2 p = 2.2e-20)
+  IFEval-implied minus rest-implied factor change: +2.428, t(42) = 7.58, p = 2.2e-09
+  bartlett  -0.067  95% CI [-0.137, -0.009]
+  gls       -0.073  95% CI [-0.190, +0.035]
+  uls       -0.034  95% CI [-0.104, +0.033]
+  median    -0.056  95% CI [-0.144, +0.011]
+  benchmark gains (pretrained SD, t 95% CI across lineages): ifeval +1.27 [+0.92, +1.63]; bbh -0.04 [-0.12, +0.04]; math -0.01 [-0.19, +0.17]; gpqa -0.06 [-0.23, +0.12]; musr -0.39 [-0.64, -0.14]; mmlupro -0.11 [-0.18, -0.04] 
+
+=== (D) Organisation-level dependence ===
+Training-role contrast clustered by organisation of the base model | clusters: 457 
+           chisq.scaled df cfi.robust rmsea.robust  srmr
+configural       87.556 12      0.989        0.098 0.022
+metric          179.711 17      0.977        0.120 0.068
+scalar          242.750 22      0.963        0.134 0.091
+strict          224.284 28      0.962        0.120 0.097
+Delta CFI: -0.012 -0.014 -0.001 
+
+Scaled Chi-Squared Difference Test (method = "satorra.bentler.2001")
+
+lavaan NOTE:
+    The "Chisq" column contains standard test statistics, not the
+    robust test that should be reported per model. A robust difference
+    test is a function of two standard (not robust) statistics.
+ 
+                Df   AIC   BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+fits$configural 12 35044 35293 184.53                                  
+fits$metric     17 35223 35442 373.24     94.199       5  < 2.2e-16 ***
+fits$scalar     22 35443 35633 603.58     59.384       5  1.629e-11 ***
+fits$strict     28 35462 35616 633.97      7.458       6     0.2805    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+[Strict pairs, bootstrap resampling base-model organisations] pairs 387, lineages 48, bootstrap units 16 (usable 2000 of 2000)
+  Q(5) = 88.4 (chi2 p = 1.4e-17)
+  IFEval-implied minus rest-implied factor change: +2.203, t(47) = 7.41, p = 2e-09
+  bartlett  -0.077  95% CI [-0.144, +0.008]
+  gls       -0.080  95% CI [-0.202, +0.011]
+  uls       -0.027  95% CI [-0.095, +0.069]
+  median    -0.068  95% CI [-0.141, +0.073]
+  benchmark gains (pretrained SD, t 95% CI across lineages): ifeval +1.16 [+0.83, +1.49]; bbh -0.06 [-0.14, +0.02]; math +0.06 [-0.06, +0.19]; gpqa -0.06 [-0.23, +0.11]; musr -0.33 [-0.57, -0.09]; mmlupro -0.12 [-0.18, -0.06] 
+Q computed on organisation means (16 organisations): Q(5) = 22.0; empirical pure-g null (organisation bootstrap, 5000 replicates): 95th 48.3, 99th 127.1, max 8237.4, p = 0.1421
+IFEval-implied minus rest-implied factor change, lineage units (n = 48): mean +2.203; t(47) = 7.41, p = 2e-09; bootstrap 95% CI [+1.477, +3.238]; units with a positive contrast 39 of 48
+IFEval-implied minus rest-implied factor change, organisation units (n = 16): mean +1.640; t(15) = 3.54, p = 0.003; bootstrap 95% CI [+0.718, +2.806]; units with a positive contrast 11 of 16
+
+=== (E) Linking-constraint sensitivity (strict pairs) ===
+
+[Strict pairs, all] pairs 387, lineages 48, bootstrap units 48 (usable 2000 of 2000)
+  Q(5) = 88.4 (chi2 p = 1.4e-17)
+  IFEval-implied minus rest-implied factor change: +2.203, t(47) = 7.41, p = 2e-09
+  bartlett  -0.077  95% CI [-0.145, -0.018]
+  gls       -0.080  95% CI [-0.172, +0.003]
+  uls       -0.027  95% CI [-0.102, +0.044]
+  median    -0.068  95% CI [-0.141, +0.035]
+  benchmark gains (pretrained SD, t 95% CI across lineages): ifeval +1.16 [+0.83, +1.49]; bbh -0.06 [-0.14, +0.02]; math +0.06 [-0.06, +0.19]; gpqa -0.06 [-0.23, +0.11]; musr -0.33 [-0.57, -0.09]; mmlupro -0.12 [-0.18, -0.06] 
+                bartlett    uls median
+without ifeval    -0.079 -0.076 -0.076
+without bbh       -0.101 -0.017 -0.076
+without math      -0.068 -0.051 -0.076
+without gpqa      -0.078 -0.020 -0.059
+without musr      -0.076 -0.010 -0.059
+without mmlupro   -0.048  0.028 -0.059
+Leave-one-benchmark-out range: Bartlett [-0.101, -0.048]; ULS [-0.076, 0.028]; median [-0.076, -0.059]
+Implied factor change per benchmark (mean gain / loading): ifeval +2.127; bbh -0.059; math +0.072; gpqa -0.076; musr -0.571; mmlupro -0.121 
+
+=== (F) Per-benchmark within-lineage gains, pretrained SD units, t-based 95% CI across 48 lineages ===
+ifeval   +1.158 [+0.828, +1.489]  p = 6.8e-09
+bbh      -0.058 [-0.135, +0.019]  p = 0.14
+math     +0.061 [-0.064, +0.187]  p = 0.33
+gpqa     -0.059 [-0.227, +0.108]  p = 0.48
+musr     -0.330 [-0.570, -0.091]  p = 0.0079
+mmlupro  -0.118 [-0.181, -0.055]  p = 0.00044
+
+=== (G) Coverage of the base-selection explanation ===
+Fine-tuned models (domain + chat): 2442; with a pretrained base on the leaderboard: 388 (15.9%)
+Descendant-weighted mean factor score of those bases: +0.799 pretrained SD (unweighted mean of the 48 bases +0.647)
+
+=== (H) Evaluation precision of pair members ===
+          base
+descendant bfloat16 float16
+  bfloat16      339       4
+  float16        42       2

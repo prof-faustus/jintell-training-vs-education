@@ -2,7 +2,7 @@
 
 Code that reproduces every number, table and figure in:
 
-Wright, C. S. (2026). *Training versus Education in Machines: Fine-Tuning and Generational Gains in Large Language Models Are Not Measurement-Invariant Gains in g* Manuscript submitted to *Journal of Intelligence* (MDPI).
+Wright, C. S. (2026). *Training versus Education in Machines: Fine-Tuning and Generational Gains in Large Language Models Are Not Measurement-Invariant Gains in g* Manuscript prepared for submission to *Journal of Intelligence* (MDPI).
 
 The analysis uses only two public secondary sources. There are no human participants.
 
@@ -28,7 +28,7 @@ bash run_all.sh                         # full run with the simulation sizes use
 R_NULL=20 B_DMACS=20 bash run_all.sh    # quick check with reduced simulation sizes
 ```
 
-Run it from the repository root. Outputs go to `derived/` (prepared data), `out/` (results) and `fig/` (figures), and `out/SHA256SUMS` lists their hashes. All random steps use seed 20261113. The full run is dominated by the seven simulated invariance nulls (`10_invariance_null.R`, 500 replicates each, 300 for the two-factor model).
+Run it from the repository root. Outputs go to `derived/` (prepared data), `out/` (results) and `fig/` (figures), and `out/SHA256SUMS` lists their hashes. All random steps use seed 20261113. The full run is dominated by the simulated invariance nulls (`10_invariance_null.R`: 500 replicates for each of six M4 nulls, 300 for the two-factor null, 200 for the organisation-clustered and no-template nulls) and the 1000-permutation frontier tests (`29_epoch_tests.R`).
 
 ## Scripts and where their results appear
 
@@ -54,11 +54,15 @@ Run it from the repository root. Outputs go to `derived/` (prepared data), `out/
 | `22_g_change_controls.R` | `out/p_strong_v1.txt` | Within-lineage g change, Q test, TOST, negative and positive controls, depth |
 | `23_q_calibration.R` | `out/p_qcal_v1.txt` | Empirical calibration of Q |
 | `24_placebo.R` | `out/q_placebo_v1.txt` | Placebo splits |
+| `27_prep_extra.py` | `derived/hf_extra_v1.csv` | Evaluation precision, chat-template flag, weight type |
+| `28_review_tests.R` | `out/r_review_tests_v1.txt` | Type-label check; evaluation format; matched pairs; organisation-level dependence; linking constraints (Table 5); IFEval contrast; base-selection coverage |
+| `10_invariance_null.R` (organisation clusters; no-template sample) | `out/e_mcnull_role_org_exact_v1.txt`, `out/e_mcnull_role_notemplate_exact_v1.txt` | Training-role nulls under organisation clustering and without chat-template evaluations |
+| `29_epoch_tests.R` | `out/s_epoch_tests_v1.txt` | Frontier replication: configural fit, permutation tests, median collapse |
 | `25_fig1.py`, `26_fig2.py` | `fig/fig1_v1.pdf`, `fig/fig2_v1.pdf` | Figures 1 and 2 |
 
 ## Reference results
 
-`reference_results/` holds the output of a full run, with SHA-256 hashes in `reference_results/SHA256SUMS`, so a rerun can be compared file by file. The non-random outputs were regenerated from a clean copy of this repository and are byte-identical across runs. For the simulations, a reduced run (`R_NULL=20`) reproduced the first replicates of every full-size null exactly, because all seven nulls draw from the same seeded random stream. The files contain summary statistics only and no rows of the Hugging Face table.
+`reference_results/` holds the output of a full run, with SHA-256 hashes in `reference_results/SHA256SUMS`, so a rerun can be compared file by file. The non-random outputs were regenerated from a clean copy of this repository and are byte-identical across runs. For the simulations, a reduced run (`R_NULL=20`) reproduced the first replicates of every full-size null exactly, because every null draws from a seeded random stream. The files contain summary statistics only and no rows of the Hugging Face table.
 
 ## Licence
 

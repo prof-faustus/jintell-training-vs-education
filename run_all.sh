@@ -33,11 +33,17 @@ Rscript scripts/16_mcv_strict.R > out/m_mcv_strict_v1.txt
 Rscript scripts/17_robust_exact.R > out/o_robust_exact_v1.txt
 python3 scripts/18_epoch_long.py $EP derived
 python3 scripts/19_epoch_prep.py $EP derived
+python3 scripts/19_epoch_prep.py $EP derived median                  # median-collapse robustness file
 Rscript scripts/20_epoch.R
 Rscript scripts/21_epoch_noclip.R
 Rscript scripts/22_g_change_controls.R
 Rscript scripts/23_q_calibration.R > out/p_qcal_v1.txt
 Rscript scripts/24_placebo.R
+python3 scripts/27_prep_extra.py $HF derived                       # precision, chat template, weight type
+Rscript scripts/28_review_tests.R                                  # writes derived/hf_models_v2_notemplate.csv
+Rscript $N $D $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_org_exact_v1.txt $SEED exact org
+Rscript $N derived/hf_models_v2_notemplate.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_notemplate_exact_v1.txt $SEED exact
+Rscript scripts/29_epoch_tests.R $(( R_NULL * 2 )) $R_NULL
 python3 scripts/25_fig1.py
 python3 scripts/26_fig2.py
 sha256sum out/* fig/* > out/SHA256SUMS

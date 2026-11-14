@@ -1,6 +1,6 @@
 suppressMessages({library(lavaan)})
 # Multigroup Bollen-Stine cluster bootstrap null for invariance fit changes.
-# args: data.csv  syntax.txt  which(role|cohort)  R  outfile  seed
+# args: data.csv  syntax.txt  which(role|cohort)  R  outfile  seed  [mode exact|misfit|ext]  [cluster base|org, role only]
 args <- commandArgs(TRUE)
 x <- read.csv(args[1]); m <- paste(readLines(args[2]), collapse = "\n")
 which <- args[3]; R <- as.integer(args[4]); outf <- args[5]; set.seed(as.integer(args[6])); mode <- if (length(args) >= 7) args[7] else "exact"
@@ -9,6 +9,7 @@ if (which == "role") {
   x$grp <- ifelse(x$type %in% c("pretrained","continuously pretrained"), "pretrained",
            ifelse(x$type %in% c("fine-tuned on domain-specific datasets","chat models (RLHF, DPO, IFT, ...)"), "finetuned", NA))
   d <- x[!is.na(x$grp), ]; d$cl <- d$base
+  if (length(args) >= 8 && args[8] == "org") d$cl <- sub("/.*", "", d$base)   # clusters = organisation of the base model
 } else {
   d <- x[x$type %in% c("pretrained","continuously pretrained") & !is.na(x$upload_year), ]
   d$grp <- ifelse(d$upload_year <= 2023, "c2022_23", ifelse(d$upload_year == 2024, "c2024", "c2025"))
