@@ -62,7 +62,7 @@ Run it from the repository root. Outputs go to `derived/` (prepared data), `out/
 
 ## Reference results
 
-`reference_results/` holds the output of a full run, with SHA-256 hashes in `reference_results/SHA256SUMS`, so a rerun can be compared file by file. The non-random outputs were regenerated from a clean copy of this repository and are byte-identical across runs. For the simulations, a reduced run (`R_NULL=20`) reproduced the first replicates of every full-size null exactly, because every null draws from a seeded random stream. The files contain summary statistics only and no rows of the Hugging Face table.
+`reference_results/` holds the output of a full run, with SHA-256 hashes in `reference_results/SHA256SUMS`, so a rerun can be compared file by file. The non-random outputs were regenerated from a clean copy of this repository and are byte-identical across runs. For the simulations, a reduced run (`R_NULL=20`) reproduced exactly the first replicates of the seven nulls that predate the review tests, because each null draws from a seeded random stream. The two later nulls (organisation clusters; no chat template), the review tests and the frontier permutation tests were run at full size with the scripts in this repository. The files contain summary statistics only and no rows of the Hugging Face table.
 
 ## Licence
 
