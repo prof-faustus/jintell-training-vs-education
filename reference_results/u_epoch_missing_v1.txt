@@ -1,0 +1,27 @@
+=== (M1) Predictors of a missing score (logistic regression on cohort and the observed GPQA and AIME logits) ===
+  arc1_lg missing 78 of 158: grpy2026 OR 34.56 (p = 1.3e-05); gpqa_lg OR 0.10 (p = 0.00016); aime_lg OR 1.13 (p = 0.65)
+  arc2_lg missing 77 of 158: grpy2026 OR 24.96 (p = 3e-05); gpqa_lg OR 0.12 (p = 0.00018); aime_lg OR 1.20 (p = 0.5)
+  dtb_lg missing 19 of 158: grpy2026 OR 0.20 (p = 0.034); gpqa_lg OR 2.58 (p = 0.06); aime_lg OR 0.74 (p = 0.32)
+
+=== (M2) Complete cases (all five scores observed) ===
+  n = 60 ( 21/39 )
+  metric dchi2 18.9, permutation p = 0.072; scalar dchi2 2.1, permutation p = 0.744 (499 permutations)
+
+=== (M3) Imputed values shifted by -1.0 SD (10 imputations, 200 permutations each) ===
+  metric dchi2 median 78.3 (range 40.4 to 106.9); permutation p median 0.005, max 0.005
+  scalar dchi2 median 31.0; permutation p median 0.005, min 0.005
+
+=== (M3) Imputed values shifted by -0.5 SD (10 imputations, 200 permutations each) ===
+  metric dchi2 median 74.3 (range 39.0 to 175.9); permutation p median 0.005, max 0.005
+  scalar dchi2 median 8.5; permutation p median 0.132, min 0.010
+
+=== (M3) Imputed values shifted by +0.0 SD (10 imputations, 200 permutations each) ===
+  metric dchi2 median 99.9 (range 51.4 to 1182.0); permutation p median 0.005, max 0.005
+  scalar dchi2 median 12.5; permutation p median 0.030, min 0.005
+
+=== (M3) Imputed values shifted by +0.5 SD (10 imputations, 200 permutations each) ===
+  metric dchi2 median 34.7 (range 15.9 to 228.7); permutation p median 0.010, max 0.067
+  scalar dchi2 median 17.7; permutation p median 0.025, min 0.005
+
+=== (S) Cohort split at the median release date (2025-09-24): n = 83/82 ===
+  metric dchi2 83.3, permutation p = 0.002; scalar dchi2 5.2, permutation p = 0.293

@@ -1,0 +1,61 @@
+=== (T) Evaluation time of descendant and base ===
+Gap (descendant minus base submission date, years): median 0.24, IQR 0.06 to 0.31, range -0.47 to 0.71; descendant evaluated later in 87.9% of pairs
+Slope of each pair gain on the evaluation gap (per year), lineage-bootstrap 95% CI:
+  ifeval     -1.300 [-2.334, +0.243]
+  bbh        -0.202 [-0.551, +0.070]
+  math       -0.001 [-0.328, +0.386]
+  gpqa       +1.877 [-0.548, +3.307]
+  musr       -0.790 [-1.437, -0.004]
+  mmlupro    -0.366 [-0.629, +0.014]
+  Bartlett   -0.195 [-0.489, +0.042]
+  IFEval contrast -2.492 [-4.525, +0.545]
+  [pairs evaluated within 90 days of each other] pairs 193, lineages 43: Bartlett factor change -0.056 [-0.117, +0.002]; IFEval gain +1.37 SD; IFEval contrast +2.58, t(42) = 8.52, p = 1.1e-10
+  [pairs evaluated within 30 days of each other] pairs 107, lineages 33: Bartlett factor change -0.037 [-0.125, +0.038]; IFEval gain +1.62 SD; IFEval contrast +3.02, t(32) = 9.32, p = 1.2e-10
+
+=== (E) Clipping constant of the logit scale ===
+eps = 0.001
+  training role: metric dchi2 86.4, dCFI -0.012; scalar dchi2 93.1, dCFI -0.013
+  cohorts:       metric dchi2 42.7, dCFI -0.022; scalar dchi2 48.4, dCFI -0.033
+  [within lineages, eps 0.001] pairs 387, lineages 48: Bartlett factor change -0.078 [-0.145, -0.022]; IFEval gain +1.09 SD; IFEval contrast +2.16, t(47) = 7.29, p = 3e-09
+eps = 0.005
+  training role: metric dchi2 131.7, dCFI -0.012; scalar dchi2 138.8, dCFI -0.015
+  cohorts:       metric dchi2 53.1, dCFI -0.027; scalar dchi2 63.3, dCFI -0.039
+  [within lineages, eps 0.005] pairs 387, lineages 48: Bartlett factor change -0.077 [-0.143, -0.021]; IFEval gain +1.16 SD; IFEval contrast +2.20, t(47) = 7.41, p = 2e-09
+eps = 0.010
+  training role: metric dchi2 153.8, dCFI -0.013; scalar dchi2 151.8, dCFI -0.016
+  cohorts:       metric dchi2 72.5, dCFI -0.035; scalar dchi2 86.0, dCFI -0.045
+  [within lineages, eps 0.010] pairs 387, lineages 48: Bartlett factor change -0.075 [-0.140, -0.020]; IFEval gain +1.18 SD; IFEval contrast +2.22, t(47) = 7.43, p = 1.8e-09
+eps = 0.020
+  training role: metric dchi2 150.5, dCFI -0.012; scalar dchi2 136.8, dCFI -0.014
+  cohorts:       metric dchi2 76.8, dCFI -0.050; scalar dchi2 58.3, dCFI -0.035
+  [within lineages, eps 0.020] pairs 387, lineages 48: Bartlett factor change -0.084 [-0.146, -0.027]; IFEval gain +1.20 SD; IFEval contrast +2.24, t(47) = 7.50, p = 1.4e-09
+
+=== (L) Linearity of each benchmark in the common factor ===
+pretrained (n = 324):
+  ifeval   linear slope 0.61; R2 gain from curvature 0.000 [0.000, 0.019]; local slope at 10th / 90th percentile 0.59 / 0.68 (ratio 1.15 [0.28, 6.78])
+  bbh      linear slope 1.09; R2 gain from curvature 0.006 [0.003, 0.011]; local slope at 10th / 90th percentile 1.04 / 0.80 (ratio 0.77 [0.58, 1.09])
+  math     linear slope 0.96; R2 gain from curvature 0.032 [0.019, 0.055]; local slope at 10th / 90th percentile 0.80 / 1.73 (ratio 2.16 [1.48, 3.75])
+  gpqa     linear slope 0.88; R2 gain from curvature 0.034 [0.016, 0.062]; local slope at 10th / 90th percentile -0.17 / 1.12 (ratio -6.61 [-56.46, 121.41])
+  musr     linear slope 0.64; R2 gain from curvature 0.030 [0.004, 0.077]; local slope at 10th / 90th percentile -0.23 / 1.03 (ratio -4.46 [-35.55, 31.84])
+  mmlupro  linear slope 1.07; R2 gain from curvature 0.026 [0.019, 0.036]; local slope at 10th / 90th percentile 1.14 / 0.53 (ratio 0.47 [0.28, 0.80])
+finetuned (n = 2442):
+  ifeval   linear slope 1.14; R2 gain from curvature 0.004 [0.001, 0.013]; local slope at 10th / 90th percentile 1.31 / 0.68 (ratio 0.52 [0.17, 0.83])
+  bbh      linear slope 0.97; R2 gain from curvature 0.005 [0.004, 0.008]; local slope at 10th / 90th percentile 1.10 / 0.73 (ratio 0.67 [0.60, 0.72])
+  math     linear slope 1.02; R2 gain from curvature 0.019 [0.010, 0.031]; local slope at 10th / 90th percentile 0.89 / 1.77 (ratio 1.98 [1.60, 2.50])
+  gpqa     linear slope 0.83; R2 gain from curvature 0.008 [0.004, 0.014]; local slope at 10th / 90th percentile 0.66 / 1.12 (ratio 1.69 [1.42, 1.96])
+  musr     linear slope 0.95; R2 gain from curvature 0.051 [0.027, 0.086]; local slope at 10th / 90th percentile 0.27 / 0.94 (ratio 3.43 [1.29, 16.77])
+  mmlupro  linear slope 0.81; R2 gain from curvature 0.029 [0.021, 0.036]; local slope at 10th / 90th percentile 1.12 / 0.41 (ratio 0.36 [0.30, 0.42])
+
+Common support (overall score between -0.89 and 1.57): n = 257/1843; group difference in mean overall score 0.54 SD (full sample 0.80)
+  training role: metric dchi2 198.6, dCFI -0.020; scalar dchi2 181.7, dCFI -0.035
+
+=== (L2) Curvature combined with different latent levels ===
+Training role, matched pairs (1:1, unmatched pretrained models dropped): n = 317/317; overall score mean 0.018 vs 0.018, SD 0.886 vs 0.886
+  metric dchi2 20.2, dCFI -0.005; scalar dchi2 51.6, dCFI -0.019
+Cohorts, matched triplets (one 2024 and one 2025 model per 2022-23 model, unmatched dropped): n = 34/34/34; overall score mean -0.336 / -0.330 / -0.339, SD 0.679 / 0.678 / 0.680
+  metric dchi2 28.5, dCFI -0.031; scalar dchi2 20.9, dCFI -0.033
+Cohorts 2022-23 and 2025 only (similar overall level, all models): n = 71/83; overall score mean -0.388 / -0.275, SD 0.653 / 0.829
+  metric dchi2 29.0, dCFI -0.025; scalar dchi2 5531.3, dCFI -0.080
+Local slopes at the base models (median across pairs): ifeval 0.63; bbh 1.09; math 1.24; gpqa 0.97; musr 0.94; mmlupro 1.09; share of pairs with any non-positive local slope 0.163
+Local-slope IFEval contrast, lineage units (n = 48, pairs with IFEval local slope > 0.1: 387): +1.74, t(47) = 7.50, p = 1.4e-09
+Local-slope IFEval contrast, organisation units (n = 16, pairs with IFEval local slope > 0.1: 387): +1.34, t(15) = 3.44, p = 0.0036

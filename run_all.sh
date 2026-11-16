@@ -44,6 +44,12 @@ Rscript scripts/28_review_tests.R                                  # writes deri
 Rscript $N $D $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_org_exact_v1.txt $SEED exact org
 Rscript $N derived/hf_models_v2_notemplate.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_notemplate_exact_v1.txt $SEED exact
 Rscript scripts/29_epoch_tests.R $(( R_NULL * 2 )) $R_NULL
+python3 scripts/30_prep_norm.py $HF derived/hf_models_v1.csv derived  # normalised scores for the clipping-constant test
+Rscript scripts/30_review_tests2.R                                 # writes the matched and equal-level subsets
+Rscript $N derived/hf_models_v2_matched_role.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_matched_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_matched_cohort.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_matched_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_cohort_2223_25.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_2223v25_exact_v1.txt $SEED exact
+Rscript scripts/31_epoch_missing.R
 python3 scripts/25_fig1.py
 python3 scripts/26_fig2.py
 sha256sum out/* fig/* > out/SHA256SUMS

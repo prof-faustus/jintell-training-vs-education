@@ -17,7 +17,7 @@ If the Hugging Face file at the pinned revision ever changes, the hash check fai
 
 ## Requirements
 
-- R 4.3.3 with lavaan 0.6-17, psych 2.4.1 and MASS 7.3-60.0.1
+- R 4.3.3 with lavaan 0.6-17, psych 2.4.1, MASS 7.3-60.0.1 and mice 3.16.0
 - Python 3.13 with the packages in `requirements.txt`
 - bash, curl, unzip and sha256sum
 
@@ -58,11 +58,14 @@ Run it from the repository root. Outputs go to `derived/` (prepared data), `out/
 | `28_review_tests.R` | `out/r_review_tests_v1.txt` | Type-label check; evaluation format; matched pairs; organisation-level dependence; linking constraints (Table 5); IFEval contrast; base-selection coverage |
 | `10_invariance_null.R` (organisation clusters; no-template sample) | `out/e_mcnull_role_org_exact_v1.txt`, `out/e_mcnull_role_notemplate_exact_v1.txt` | Training-role nulls under organisation clustering and without chat-template evaluations |
 | `29_epoch_tests.R` | `out/s_epoch_tests_v1.txt` | Frontier replication: configural fit, permutation tests, median collapse |
+| `30_prep_norm.py`, `30_review_tests2.R` | `derived/hf_norm_v1.csv`, `out/t_review_tests2_v1.txt` | Evaluation time; logit clipping constant; linearity and local slopes; level-matched samples; equal-level cohorts |
+| `10_invariance_null.R` (matched and equal-level samples) | `out/e_mcnull_role_matched_exact_v1.txt`, `out/e_mcnull_cohort_matched_exact_v1.txt`, `out/e_mcnull_cohort_2223v25_exact_v1.txt` | Nulls for the curvature checks |
+| `31_epoch_missing.R` | `out/u_epoch_missing_v1.txt` | Frontier missingness model, complete cases, shifted multiple imputation, median-date cohort split |
 | `25_fig1.py`, `26_fig2.py` | `fig/fig1_v1.pdf`, `fig/fig2_v1.pdf` | Figures 1 and 2 |
 
 ## Reference results
 
-`reference_results/` holds the output of a full run, with SHA-256 hashes in `reference_results/SHA256SUMS`, so a rerun can be compared file by file. The non-random outputs were regenerated from a clean copy of this repository and are byte-identical across runs. For the simulations, a reduced run (`R_NULL=20`) reproduced exactly the first replicates of the seven nulls that predate the review tests, because each null draws from a seeded random stream. The two later nulls (organisation clusters; no chat template), the review tests and the frontier permutation tests were run at full size with the scripts in this repository. The files contain summary statistics only and no rows of the Hugging Face table.
+`reference_results/` holds the output of a full run, with SHA-256 hashes in `reference_results/SHA256SUMS`, so a rerun can be compared file by file. The non-random outputs were regenerated from a clean copy of this repository and are byte-identical across runs. For the simulations, a reduced run (`R_NULL=20`) reproduced exactly the first replicates of the seven nulls that predate the review tests, because each null draws from a seeded random stream. The later nulls (organisation clusters; no chat template; matched and equal-level samples), the review tests and the frontier permutation and imputation tests were run at full size with the scripts in this repository; blocks of `29_epoch_tests.R` and `31_epoch_missing.R` that were run separately carry their own seeds and give the same results as a single run. The files contain summary statistics only and no rows of the Hugging Face table.
 
 ## Licence
 
