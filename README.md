@@ -61,6 +61,7 @@ Run it from the repository root. Outputs go to `derived/` (prepared data), `out/
 | `30_prep_norm.py`, `30_review_tests2.R` | `derived/hf_norm_v1.csv`, `out/t_review_tests2_v1.txt` | Evaluation time; logit clipping constant; linearity and local slopes; level-matched samples; equal-level cohorts |
 | `10_invariance_null.R` (matched and equal-level samples) | `out/e_mcnull_role_matched_exact_v1.txt`, `out/e_mcnull_cohort_matched_exact_v1.txt`, `out/e_mcnull_cohort_2223v25_exact_v1.txt` | Nulls for the curvature checks |
 | `31_epoch_missing.R` | `out/u_epoch_missing_v1.txt` | Frontier missingness model, complete cases, shifted multiple imputation, median-date cohort split |
+| `32_review_tests3.R` | `out/v_review_tests3_v1.txt` | First-party and official-provider descendants; Holm adjustment of the five confirmatory tests |
 | `25_fig1.py`, `26_fig2.py` | `fig/fig1_v1.pdf`, `fig/fig2_v1.pdf` | Figures 1 and 2 |
 
 ## Reference results

@@ -50,6 +50,7 @@ Rscript $N derived/hf_models_v2_matched_role.csv $M4 role $(( R_NULL * 2 / 5 )) 
 Rscript $N derived/hf_models_v2_matched_cohort.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_matched_exact_v1.txt $SEED exact
 Rscript $N derived/hf_models_v2_cohort_2223_25.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_2223v25_exact_v1.txt $SEED exact
 Rscript scripts/31_epoch_missing.R
+Rscript scripts/32_review_tests3.R                                 # selection of descendants; Holm adjustment (reads the null outputs)
 python3 scripts/25_fig1.py
 python3 scripts/26_fig2.py
 sha256sum out/* fig/* > out/SHA256SUMS
