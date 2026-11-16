@@ -56,6 +56,12 @@ Rscript $N derived/hf_models_v2_period_early.csv $M4 role $(( R_NULL * 2 / 5 )) 
 Rscript $N derived/hf_models_v2_period_late.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_late_exact_v1.txt $SEED exact
 Rscript $N derived/hf_models_v2_cohort_early.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_early_exact_v1.txt $SEED exact
 Rscript $N derived/hf_models_v2_cohort_late.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_late_exact_v1.txt $SEED exact
+for V in main flagged f16; do python3 scripts/34_prep_alt.py $HF derived $V; done   # alternative sample constructions (main reproduces hf_models_v2.csv)
+Rscript $N derived/hf_models_v2_flagged.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_flagged_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_f16.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_f16_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_f16.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_f16_exact_v1.txt $SEED exact
+Rscript scripts/34_review_tests5.R all out/x_review_tests5_v1.txt   # within-lineage results on the alternative samples; stability of model selection
+for B in D-1 D-0.5 D0 D0.5; do Rscript scripts/31_epoch_missing.R $B out/u_epoch_missing_pmm_${B}_v1.txt pmm; done   # predictive mean matching
 python3 scripts/25_fig1.py
 python3 scripts/26_fig2.py
 sha256sum out/* fig/* > out/SHA256SUMS

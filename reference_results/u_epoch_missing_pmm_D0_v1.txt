@@ -1,0 +1,4 @@
+
+=== (M3) Imputed values (pmm) shifted by +0.0 SD (10 imputations, 200 permutations each) ===
+  metric dchi2 median 88.4 (range 60.3 to 699.5); permutation p median 0.005, max 0.005
+  scalar dchi2 median 41.7; permutation p median 0.005, min 0.005

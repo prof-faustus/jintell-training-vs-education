@@ -1,0 +1,43 @@
+=== (A) Within-lineage results under alternative sample constructions ===
+
+main: 4496 models; 324 pretrained; 387 pairs in 48 lineages, 16 organisations
+  gains in pretrained SD: ifeval +1.16; bbh -0.06; math +0.06; gpqa -0.06; musr -0.33; mmlupro -0.12 
+  factor change: bartlett -0.077; gls -0.080; uls -0.027; median -0.068 
+  IFEval contrast: lineages t(47) = 7.41, p = 2e-09; organisations t(15) = 3.54, p = 0.003
+
+flagged: 4497 models; 324 pretrained; 387 pairs in 48 lineages, 16 organisations
+  gains in pretrained SD: ifeval +1.16; bbh -0.06; math +0.06; gpqa -0.06; musr -0.33; mmlupro -0.12 
+  factor change: bartlett -0.077; gls -0.080; uls -0.027; median -0.068 
+  IFEval contrast: lineages t(47) = 7.41, p = 2e-09; organisations t(15) = 3.54, p = 0.003
+
+f16: 4496 models; 323 pretrained; 398 pairs in 48 lineages, 16 organisations
+  gains in pretrained SD: ifeval +1.17; bbh -0.06; math +0.08; gpqa -0.07; musr -0.35; mmlupro -0.12 
+  factor change: bartlett -0.076; gls -0.084; uls -0.027; median -0.076 
+  IFEval contrast: lineages t(47) = 7.24, p = 3.5e-09; organisations t(15) = 3.75, p = 0.0019
+
+=== (S) Measurement-model selection repeated on 100 random lineage splits (procedure of 06_select_logit.R) ===
+Published M4 covariances: bbh_lg~~musr_lg | gpqa_lg~~musr_lg | ifeval_lg~~math_lg 
+Selections identical to M4: 81 of 100
+Number of covariances added:
+
+ 2  3 
+11 89 
+Selected sets:
+
+    bbh_lg~~musr_lg | gpqa_lg~~musr_lg | ifeval_lg~~math_lg 
+                                                         81 
+                      gpqa_lg~~musr_lg | ifeval_lg~~math_lg 
+                                                          9 
+gpqa_lg~~musr_lg | ifeval_lg~~math_lg | mmlupro_lg~~musr_lg 
+                                                          4 
+   gpqa_lg~~math_lg | gpqa_lg~~musr_lg | ifeval_lg~~math_lg 
+                                                          2 
+                   ifeval_lg~~math_lg | mmlupro_lg~~musr_lg 
+                                                          2 
+   gpqa_lg~~musr_lg | ifeval_lg~~math_lg | math_lg~~musr_lg 
+                                                          1 
+ifeval_lg~~math_lg | math_lg~~musr_lg | mmlupro_lg~~musr_lg 
+                                                          1 
+Splits whose selection contains each M4 covariance: 81 / 97 / 100 
+Holdout fit of the selected model: robust CFI median 0.991, range 0.974 to 0.995 ; robust RMSEA median 0.096, range 0.069 to 0.150 
+Holdout fit of M4 itself:          robust CFI median 0.991, range 0.987 to 0.995 ; robust RMSEA median 0.094, range 0.069 to 0.115 ; SRMR median 0.020, range 0.015 to 0.025 

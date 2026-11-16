@@ -2,8 +2,9 @@ suppressMessages({library(lavaan); library(mice)})
 # Frontier replication, missing data and cohort split.
 # (M1) what predicts a missing score; (M2) complete cases only; (M3) missing-not-at-random sensitivity: multiple imputation within each cohort with the
 # imputed values shifted by delta standard deviations, each imputed data set tested by permutation; (S) cohort split at the median release date.
-# args: [block: all|M|D-1|D-0.5|D0|D0.5|S] [outfile]
+# args: [block: all|M|D-1|D-0.5|D0|D0.5|S] [outfile] [imputation method: norm (default; Bayesian linear regression) | pmm (predictive mean matching, no normality)]
 args <- commandArgs(TRUE); part <- if (length(args) >= 1) args[1] else "all"; outf <- if (length(args) >= 2) args[2] else "out/u_epoch_missing_v1.txt"
+imeth <- if (length(args) >= 3) args[3] else "norm"
 vl <- paste0(c("gpqa","aime","arc1","arc2","dtb"), "_lg"); m <- paste("g =~", paste(vl, collapse = " + "))
 x <- read.csv("derived/epoch_wide_v1.csv"); x$grp <- factor(ifelse(x$year <= 2025, "le2025", "y2026")); x <- x[rowSums(!is.na(x[, vl])) >= 3, ]
 eqs <- list("", "loadings", c("loadings","intercepts"))
@@ -25,13 +26,13 @@ if (part %in% c("all","M")) {
 for (delta in c(-1, -0.5, 0, 0.5)) { if (!(part %in% c("all", paste0("D", delta)))) next
   set.seed(3100 + round(10 * delta)); sdv <- sapply(x[, vl], sd, na.rm = TRUE)
   # Imputation within each cohort, so that the imputation model allows the cohorts different means and covariances (as the configural model does)
-  imps <- lapply(levels(x$grp), function(g) mice(x[x$grp == g, vl], m = 10, method = "norm", printFlag = FALSE))
+  imps <- lapply(levels(x$grp), function(g) mice(x[x$grp == g, vl], m = 10, method = imeth, printFlag = FALSE))
   res <- t(sapply(1:10, function(i) { d <- do.call(rbind, lapply(seq_along(imps), function(j) data.frame(complete(imps[[j]], i), grp = levels(x$grp)[j])))
     d$grp <- factor(d$grp, levels = levels(x$grp)); xo <- x[order(x$grp), ]
     for (b in vl) { mm <- is.na(xo[[b]]); d[[b]][mm] <- d[[b]][mm] + delta * sdv[b] }
     perm(d, "listwise", 200, 3200 + i) }))
-  cat(sprintf("\n=== (M3) Imputed values shifted by %+.1f SD (10 imputations, 200 permutations each) ===\n  metric dchi2 median %.1f (range %.1f to %.1f); permutation p median %.3f, max %.3f\n  scalar dchi2 median %.1f; permutation p median %.3f, min %.3f\n",
-    delta, median(res[, 1]), min(res[, 1]), max(res[, 1]), median(res[, 3]), max(res[, 3]), median(res[, 2]), median(res[, 4]), min(res[, 4]))) }
+  cat(sprintf("\n=== (M3) Imputed values%s shifted by %+.1f SD (10 imputations, 200 permutations each) ===\n  metric dchi2 median %.1f (range %.1f to %.1f); permutation p median %.3f, max %.3f\n  scalar dchi2 median %.1f; permutation p median %.3f, min %.3f\n",
+    if (imeth == "norm") "" else paste0(" (", imeth, ")"), delta, median(res[, 1]), min(res[, 1]), max(res[, 1]), median(res[, 3]), max(res[, 3]), median(res[, 2]), median(res[, 4]), min(res[, 4]))) }
 if (part %in% c("all","S")) {
   med <- median(as.Date(x$release)); d <- x; d$grp <- factor(ifelse(as.Date(d$release) <= med, "early", "late"))
   cat(sprintf("\n=== (S) Cohort split at the median release date (%s): n = %s ===\n", med, paste(table(d$grp), collapse = "/")))
