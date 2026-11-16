@@ -1,0 +1,53 @@
+Benchmark gains in pretrained SD, lineage-weighted: ifeval +1.16; bbh -0.06; math +0.06; gpqa -0.06; musr -0.33; mmlupro -0.12 
+Benchmark gains in pretrained SD, organisation-weighted: ifeval +0.90; bbh +0.01; math +0.11; gpqa +0.11; musr -0.12; mmlupro -0.08 
+
+=== (C) Calibration of the bootstrap upper bounds for the within-lineage factor change ===
+Double bootstrap: 500 data sets simulated by resampling units from the recentred unit means plus a pure g change of zero
+(loadings x 0), each with 1000 inner resamples. Coverage = share of data sets whose upper bound at percentile q is at or above zero.
+The calibrated upper bound uses the smallest q with coverage of at least .975 for that estimator and level.
+
+lineage units (n = 48): coverage of the upper bound by percentile q
+      bartlett   gls   uls median
+0.975    0.988 0.994 0.976  0.982
+0.99     0.996 0.998 0.988  0.998
+0.995    1.000 0.998 0.994  0.998
+0.999    1.000 0.998 0.998  0.998
+  bartlett  estimate -0.077; 97.5th percentile -0.019; calibrated upper bound (q = 0.975) -0.019
+  gls       estimate -0.080; 97.5th percentile -0.002; calibrated upper bound (q = 0.975) -0.002
+  uls       estimate -0.027; 97.5th percentile +0.041; calibrated upper bound (q = 0.975) +0.041
+  median    estimate -0.068; 97.5th percentile +0.028; calibrated upper bound (q = 0.975) +0.028
+
+organisation units (n = 16): coverage of the upper bound by percentile q
+      bartlett   gls   uls median
+0.975    0.960 0.946 0.948  0.958
+0.99     0.984 0.970 0.966  0.982
+0.995    0.990 0.976 0.980  0.996
+0.999    0.998 0.980 0.992  1.000
+  bartlett  estimate -0.018; 97.5th percentile +0.070; calibrated upper bound (q = 0.990) +0.083
+  gls       estimate -0.028; 97.5th percentile +0.114; calibrated upper bound (q = 0.995) +0.211
+  uls       estimate +0.045; 97.5th percentile +0.160; calibrated upper bound (q = 0.995) +0.199
+  median    estimate +0.071; 97.5th percentile +0.250; calibrated upper bound (q = 0.990) +0.301
+
+Lineage-weighted estimand, organisations resampled (16 clusters of 48 lineages): coverage of the upper bound by percentile q
+      bartlett   gls   uls median
+0.975    0.976 0.944 0.974  0.988
+0.99     0.990 0.964 0.988  0.994
+0.995    0.996 0.978 0.992  0.996
+0.999    0.998 0.994 0.998  0.998
+  bartlett  estimate -0.077; 97.5th percentile +0.009; calibrated upper bound (q = 0.975) +0.009
+  gls       estimate -0.080; 97.5th percentile +0.015; calibrated upper bound (q = 0.995) +0.036
+  uls       estimate -0.027; 97.5th percentile +0.067; calibrated upper bound (q = 0.990) +0.088
+  median    estimate -0.068; 97.5th percentile +0.071; calibrated upper bound (q = 0.975) +0.071
+
+Models without a submission date (excluded from (P)): 5 
+
+=== (P) Evaluation period: models submitted on or before 2024-11-17 (early) versus later (late) ===
+  pretrained, early vs late (n = 187/134): dCFI metric -0.0062 (permutation p = 0.005), scalar -0.0262 (p = 0.005); 200 permutations
+  finetuned, early vs late (n = 1198/1242): dCFI metric -0.0069 (permutation p = 0.005), scalar -0.0451 (p = 0.005); 200 permutations
+  pretrained (n = 318, upload-submission correlation 0.71), referent bbh: submission-date direct effects (SD per year) ifeval +0.74; math +0.32; gpqa +0.46; musr +0.16; mmlupro -0.14; Wald chi2(5) = 11.9, p = 0.037
+  pretrained (n = 318, upload-submission correlation 0.71), referent mmlupro: submission-date direct effects (SD per year) ifeval +0.83; bbh +0.15; math +0.44; gpqa +0.57; musr +0.26; Wald chi2(5) = 11.5, p = 0.043
+  finetuned (n = 2240, upload-submission correlation 0.80), referent bbh: submission-date direct effects (SD per year) ifeval -0.05; math +0.85; gpqa +0.27; musr +0.20; mmlupro -0.05; Wald chi2(5) = 76.4, p = 4.8e-15
+  finetuned (n = 2240, upload-submission correlation 0.80), referent mmlupro: submission-date direct effects (SD per year) ifeval -0.02; bbh +0.05; math +0.89; gpqa +0.31; musr +0.24; Wald chi2(5) = 76.3, p = 5e-15
+  Cohorts within the early period (2022-23 vs 2024): n = 66/120; within the late period (2024 vs 2025): n = 44/83
+  training role within the early period (n = 187/1198): dCFI metric -0.0192, scalar -0.0140
+  training role within the late period (n = 134/1242): dCFI metric -0.0067, scalar -0.0178

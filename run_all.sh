@@ -51,6 +51,11 @@ Rscript $N derived/hf_models_v2_matched_cohort.csv $M4 cohort $(( R_NULL * 2 / 5
 Rscript $N derived/hf_models_v2_cohort_2223_25.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_2223v25_exact_v1.txt $SEED exact
 Rscript scripts/31_epoch_missing.R
 Rscript scripts/32_review_tests3.R                                 # selection of descendants; Holm adjustment (reads the null outputs)
+Rscript scripts/33_review_tests4.R all out/w_review_tests4_v1.txt   # bootstrap coverage calibration; evaluation period and drift; writes the within-period subsets
+Rscript $N derived/hf_models_v2_period_early.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_early_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_period_late.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcnull_role_late_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_cohort_early.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_early_exact_v1.txt $SEED exact
+Rscript $N derived/hf_models_v2_cohort_late.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_late_exact_v1.txt $SEED exact
 python3 scripts/25_fig1.py
 python3 scripts/26_fig2.py
 sha256sum out/* fig/* > out/SHA256SUMS

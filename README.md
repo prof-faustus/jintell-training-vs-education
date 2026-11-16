@@ -62,6 +62,8 @@ Run it from the repository root. Outputs go to `derived/` (prepared data), `out/
 | `10_invariance_null.R` (matched and equal-level samples) | `out/e_mcnull_role_matched_exact_v1.txt`, `out/e_mcnull_cohort_matched_exact_v1.txt`, `out/e_mcnull_cohort_2223v25_exact_v1.txt` | Nulls for the curvature checks |
 | `31_epoch_missing.R` | `out/u_epoch_missing_v1.txt` | Frontier missingness model, complete cases, shifted multiple imputation, median-date cohort split |
 | `32_review_tests3.R` | `out/v_review_tests3_v1.txt` | First-party and official-provider descendants; Holm adjustment of the five confirmatory tests |
+| `33_review_tests4.R` | `out/w_review_tests4_v1.txt`, `derived/hf_models_v2_period_*.csv`, `derived/hf_models_v2_cohort_{early,late}.csv` | Double-bootstrap coverage and calibrated upper bounds for the within-lineage factor change (lineage and organisation weighting); invariance across evaluation periods; submission-date drift MIMIC; within-period subsets |
+| `10_invariance_null.R` (within evaluation periods) | `out/e_mcnull_role_{early,late}_exact_v1.txt`, `out/e_mcnull_cohort_{early,late}_exact_v1.txt` | Training-role and cohort nulls within each evaluation period |
 | `25_fig1.py`, `26_fig2.py` | `fig/fig1_v1.pdf`, `fig/fig2_v1.pdf` | Figures 1 and 2 |
 
 ## Reference results
