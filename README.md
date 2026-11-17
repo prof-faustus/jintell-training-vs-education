@@ -67,6 +67,7 @@ Run it from the repository root. Outputs go to `derived/` (prepared data), `out/
 | `34_prep_alt.py`, `34_review_tests5.R` | `derived/hf_models_v2_{main,flagged,f16}.csv`, `out/x_review_tests5_v1.txt` | Sample construction (community-flagged model kept; float16 preferred for precision duplicates); stability of the measurement-model selection over 100 lineage splits |
 | `10_invariance_null.R` (alternative samples) | `out/e_mcnull_role_flagged_exact_v1.txt`, `out/e_mcnull_role_f16_exact_v1.txt`, `out/e_mcnull_cohort_f16_exact_v1.txt` | Invariance sequences and exact nulls for the alternative samples |
 | `31_epoch_missing.R` (third argument `pmm`) | `out/u_epoch_missing_pmm_{D-1,D-0.5,D0,D0.5}_v1.txt` | Frontier imputation by predictive mean matching |
+| `35_step_null.R` | `out/f_stepnull_{role,cohort}_joint_v1.txt` and `_{metric,scalar,strict}_reps.csv` | Step-specific Bollen–Stine nulls (data transformed to each step's own null model) with clusters resampled jointly across groups |
 | `25_fig1.py`, `26_fig2.py` | `fig/fig1_v1.pdf`, `fig/fig2_v1.pdf` | Figures 1 and 2 |
 
 ## Reference results

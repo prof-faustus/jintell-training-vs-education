@@ -1,0 +1,41 @@
+Step-specific nulls | design: cohort | resampling: joint | R = 500 | seed: 20261122 + step index
+Groups: c2022_23 71; c2024 167; c2025 83 | clusters: 96 | clusters spanning groups: 16 | elapsed: 15.80407 mins 
+
+Observed fit (robust CFI, robust RMSEA, SRMR)
+             configural metric scalar strict
+cfi.robust       0.9939 0.9672 0.9280 0.9286
+rmsea.robust     0.0749 0.1392 0.1771 0.1538
+srmr             0.0265 0.1211 0.1513 0.1790
+
+metric step: data transformed to the metric model (check: baseline and constrained fit CFI 1.0000 / 1.0000); converged 489 of 500
+            dCFI  dRMSEA  dSRMR
+1%       -0.0251 -0.0531 0.0108
+5%       -0.0158 -0.0380 0.0178
+50%      -0.0007  0.0000 0.0383
+95%       0.0029  0.0627 0.0716
+99%       0.0058  0.0829 0.0967
+observed -0.0267  0.0643 0.0946
+k (replicates at least as unfavourable): dCFI 3; dRMSEA 21; dSRMR 7 
+p = k/R: dCFI 0.0061; dRMSEA 0.0429; dSRMR 0.0143  | conservative (1+k)/(1+R): dCFI 0.0082; dRMSEA 0.0449; dSRMR 0.0163 
+
+scalar step: data transformed to the scalar model (check: baseline and constrained fit CFI 1.0000 / 1.0000); converged 496 of 500
+            dCFI  dRMSEA   dSRMR
+1%       -0.0289 -0.0472 -0.0002
+5%       -0.0191 -0.0306  0.0020
+50%      -0.0007  0.0000  0.0080
+95%       0.0040  0.0477  0.0260
+99%       0.0065  0.0757  0.0468
+observed -0.0392  0.0379  0.0302
+k (replicates at least as unfavourable): dCFI 2; dRMSEA 49; dSRMR 11 
+p = k/R: dCFI 0.0040; dRMSEA 0.0988; dSRMR 0.0222  | conservative (1+k)/(1+R): dCFI 0.0060; dRMSEA 0.1006; dSRMR 0.0241 
+
+strict step: data transformed to the strict model (check: baseline and constrained fit CFI 1.0000 / 1.0000); converged 495 of 500
+            dCFI  dRMSEA   dSRMR
+1%       -0.0659 -0.0519 -0.0070
+5%       -0.0361 -0.0361 -0.0001
+50%      -0.0011  0.0000  0.0170
+95%       0.0073  0.0503  0.0626
+99%       0.0117  0.0857  0.1015
+observed  0.0006 -0.0234  0.0278
+k (replicates at least as unfavourable): dCFI 381; dRMSEA 434; dSRMR 146 
+p = k/R: dCFI 0.7697; dRMSEA 0.8768; dSRMR 0.2949  | conservative (1+k)/(1+R): dCFI 0.7702; dRMSEA 0.8770; dSRMR 0.2964 

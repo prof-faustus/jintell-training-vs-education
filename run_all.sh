@@ -62,6 +62,8 @@ Rscript $N derived/hf_models_v2_f16.csv $M4 role $(( R_NULL * 2 / 5 )) out/e_mcn
 Rscript $N derived/hf_models_v2_f16.csv $M4 cohort $(( R_NULL * 2 / 5 )) out/e_mcnull_cohort_f16_exact_v1.txt $SEED exact
 Rscript scripts/34_review_tests5.R all out/x_review_tests5_v1.txt   # within-lineage results on the alternative samples; stability of model selection
 for B in D-1 D-0.5 D0 D0.5; do Rscript scripts/31_epoch_missing.R $B out/u_epoch_missing_pmm_${B}_v1.txt pmm; done   # predictive mean matching
+Rscript scripts/35_step_null.R derived/hf_models_v2.csv $M4 role $R_NULL out/f_stepnull_role_joint_v1.txt 20261122 joint      # step-specific nulls, joint cluster resampling
+Rscript scripts/35_step_null.R derived/hf_models_v2.csv $M4 cohort $R_NULL out/f_stepnull_cohort_joint_v1.txt 20261122 joint
 python3 scripts/25_fig1.py
 python3 scripts/26_fig2.py
 sha256sum out/* fig/* > out/SHA256SUMS
