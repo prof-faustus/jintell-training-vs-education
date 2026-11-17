@@ -1,0 +1,159 @@
+Seed: 20261121 
+=== (D) Decomposition of the Bartlett factor change (strict pair set, 48 lineages, lineage-weighted) ===
+ benchmark gain_logit gain_sd w_per_logit w_per_sd contribution
+    ifeval     0.7337  1.1583     0.00298  0.00189      0.00219
+       bbh    -0.0681 -0.0579     0.45982  0.54018     -0.03129
+      math     0.0740  0.0612     0.04384  0.05303      0.00324
+      gpqa    -0.0664 -0.0595     0.03206  0.03579     -0.00213
+      musr    -0.2364 -0.3301     0.00479  0.00343     -0.00113
+   mmlupro    -0.1717 -0.1179     0.27681  0.40335     -0.04754
+ contribution_org loading_std
+         0.001696       0.545
+         0.004310       0.983
+         0.005979       0.847
+         0.003995       0.783
+        -0.000407       0.579
+        -0.033865       0.978
+Sum of contributions: lineage-weighted -0.0767; organisation-weighted -0.0183
+Share of the lineage-weighted estimate carried by BBH and MMLU-Pro: 1.028
+Weights per pretrained SD sum to 1.038 (the factor-score metric); BBH + MMLU-Pro share of that sum 0.909
+
+=== (S) Metric dependence of the linking estimators ===
+Rescaling every indicator by a constant leaves Bartlett, GLS and median estimates unchanged; ULS changes. Check on the data:
+  lineage-weighted, original scale:    bartlett -0.0767; gls -0.0798; uls_logit -0.0275; uls_sd +0.0705; median -0.0675 
+  lineage-weighted, indicators x random constants: bartlett -0.0767; gls -0.0798; uls_logit -0.0100; uls_sd +0.0705; median -0.0675 
+  (uls_sd is defined on standardised indicators and is therefore unchanged by the rescaling; uls_logit is not)
+  organisation-weighted: bartlett -0.0183; gls -0.0276; uls_logit +0.0451; uls_sd +0.1365; median +0.0708 
+  ULS weights per benchmark gain in SD (lambda_SD^2 share): ifeval 0.077; bbh 0.249; math 0.184; gpqa 0.158; musr 0.086; mmlupro 0.246
+  ULS weights per benchmark gain in logits (lambda^2 share): ifeval 0.022; bbh 0.244; math 0.192; gpqa 0.140; musr 0.031; mmlupro 0.371
+
+Lineage-weighted, lineages resampled (48): coverage of the upper bound by percentile q
+      bartlett   gls uls_logit uls_sd median
+0.975    0.984 0.994     0.972  0.970  0.980
+0.99     0.992 0.998     0.986  0.978  0.994
+0.995    0.994 0.998     0.994  0.990  1.000
+0.999    0.998 0.998     0.998  0.998  1.000
+  bartlett   estimate -0.077; 2.5th -0.140; 97.5th -0.020; calibrated upper bound (q = 0.975) -0.020
+  gls        estimate -0.080; 2.5th -0.172; 97.5th -0.004; calibrated upper bound (q = 0.975) -0.004
+  uls_logit  estimate -0.027; 2.5th -0.095; 97.5th +0.038; calibrated upper bound (q = 0.990) +0.051
+  uls_sd     estimate +0.071; 2.5th -0.026; 97.5th +0.163; calibrated upper bound (q = 0.990) +0.177
+  median     estimate -0.068; 2.5th -0.142; 97.5th +0.029; calibrated upper bound (q = 0.975) +0.029
+
+Lineage-weighted, organisations resampled (16 clusters): coverage of the upper bound by percentile q
+      bartlett   gls uls_logit uls_sd median
+0.975    0.968 0.920     0.964  0.968  0.968
+0.99     0.982 0.966     0.984  0.982  0.982
+0.995    0.984 0.980     0.992  0.986  0.992
+0.999    0.994 0.996     0.996  0.990  0.998
+  bartlett   estimate -0.077; 2.5th -0.143; 97.5th +0.009; calibrated upper bound (q = 0.990) +0.031
+  gls        estimate -0.080; 2.5th -0.203; 97.5th +0.011; calibrated upper bound (q = 0.995) +0.031
+  uls_logit  estimate -0.027; 2.5th -0.094; 97.5th +0.068; calibrated upper bound (q = 0.990) +0.091
+  uls_sd     estimate +0.071; 2.5th -0.040; 97.5th +0.206; calibrated upper bound (q = 0.990) +0.237
+  median     estimate -0.068; 2.5th -0.141; 97.5th +0.076; calibrated upper bound (q = 0.990) +0.111
+
+Organisation-weighted, organisations resampled (16): coverage of the upper bound by percentile q
+      bartlett   gls uls_logit uls_sd median
+0.975    0.950 0.940     0.950  0.954  0.952
+0.99     0.970 0.966     0.964  0.972  0.966
+0.995    0.980 0.970     0.970  0.976  0.978
+0.999    0.992 0.980     0.980  0.986  0.990
+  bartlett   estimate -0.018; 2.5th -0.105; 97.5th +0.066; calibrated upper bound (q = 0.995) +0.088
+  gls        estimate -0.028; 2.5th -0.241; 97.5th +0.120; calibrated upper bound (q = 0.999) +0.414
+  uls_logit  estimate +0.045; 2.5th -0.062; 97.5th +0.158; calibrated upper bound (q = 0.999) +0.226
+  uls_sd     estimate +0.137; 2.5th -0.015; 97.5th +0.297; calibrated upper bound (q = 0.995) +0.351
+  median     estimate +0.071; 2.5th -0.082; 97.5th +0.245; calibrated upper bound (q = 0.995) +0.319
+
+Leave-one-benchmark-out (lineage-weighted), ULS in both metrics:
+        uls_sd uls_logit
+ifeval  -0.100    -0.076
+bbh      0.113    -0.017
+math     0.070    -0.051
+gpqa     0.098    -0.020
+musr     0.131    -0.010
+mmlupro  0.133     0.028
+Kenny check with the scaled statistic is reported in (K).
+
+IFEval contrast (logit metric): lineages +2.20, t(47) = 7.41, p = 2e-09; organisations +1.64, t(15) = 3.54, p = 0.003; positive in 11 of 16 organisations
+
+IFEval contrast (sd metric): lineages +2.23, t(47) = 7.56, p = 1.1e-09; organisations +1.64, t(15) = 3.56, p = 0.0029; positive in 11 of 16 organisations
+
+=== (L) Leave-one-organisation-out (lineage-weighted) ===
+            org pairs lineages
+           Qwen   232       13
+      mistralai    52        7
+         google    39        5
+     meta-llama    31        4
+         tiiuae     9        3
+  HuggingFaceTB     5        4
+      microsoft     5        2
+     speakleash     3        1
+          01-ai     2        2
+        allenai     2        1
+       pints-ai     2        1
+ BEE-spoke-data     1        1
+       JackFram     1        1
+      TinyLlama     1        1
+       dicta-il     1        1
+        upstage     1        1
+               lineages bartlett    gls uls_logit uls_sd median
+Qwen                 35   -0.062 -0.034    -0.011  0.087 -0.030
+mistralai            41   -0.088 -0.098    -0.040  0.041 -0.070
+google               43   -0.067 -0.067    -0.012  0.087 -0.078
+meta-llama           44   -0.053 -0.072    -0.013  0.074 -0.034
+tiiuae               45   -0.090 -0.085    -0.041  0.051 -0.061
+HuggingFaceTB        44   -0.075 -0.127    -0.023  0.103 -0.077
+microsoft            46   -0.065 -0.065    -0.010  0.094 -0.044
+speakleash           47   -0.085 -0.086    -0.040  0.054 -0.082
+01-ai                46   -0.083 -0.091    -0.032  0.065 -0.065
+allenai              47   -0.076 -0.079    -0.031  0.066 -0.084
+pints-ai             47   -0.079 -0.084    -0.028  0.070 -0.070
+BEE-spoke-data       47   -0.078 -0.083    -0.029  0.073 -0.083
+JackFram             47   -0.082 -0.092    -0.027  0.075 -0.068
+TinyLlama            47   -0.076 -0.077    -0.029  0.070 -0.074
+dicta-il             47   -0.081 -0.085    -0.033  0.062 -0.074
+upstage              47   -0.082 -0.081    -0.035  0.060 -0.076
+               ifeval_sd.ifeval_lg   ifc ifc_t ifc_p
+Qwen                         1.114 2.103 5.535     0
+mistralai                    1.084 2.076 6.652     0
+google                       1.135 2.144 6.712     0
+meta-llama                   1.074 2.029 6.842     0
+tiiuae                       1.086 2.080 6.753     0
+HuggingFaceTB                1.295 2.454 8.324     0
+microsoft                    1.195 2.254 7.314     0
+speakleash                   1.140 2.181 7.200     0
+01-ai                        1.170 2.230 7.201     0
+allenai                      1.159 2.207 7.268     0
+pints-ai                     1.183 2.251 7.511     0
+BEE-spoke-data               1.201 2.284 7.822     0
+JackFram                     1.188 2.258 7.566     0
+TinyLlama                    1.194 2.271 7.679     0
+dicta-il                     1.152 2.197 7.235     0
+upstage                      1.141 2.178 7.195     0
+Ranges over the 16 deletions:
+     bartlett    gls uls_logit uls_sd median ifeval_sd.ifeval_lg   ifc ifc_t
+[1,]   -0.090 -0.127    -0.041  0.041 -0.084               1.074 2.029 5.535
+[2,]   -0.053 -0.034    -0.010  0.103 -0.030               1.295 2.454 8.324
+     ifc_p
+[1,]     0
+[2,]     0
+
+Organisation-weighted, leave one organisation out (15 units):
+     bartlett    gls uls_logit uls_sd median   ifc ifc_t ifc_p
+[1,]   -0.039 -0.109     0.010  0.090  0.028 1.475 3.176 0.001
+[2,]    0.003  0.018     0.076  0.177  0.103 1.858 4.252 0.007
+
+=== (F) Scoring-format contrast: IFEval-implied minus MATH-implied factor change ===
+lineages: +2.05 g-SD, t(47) = 7.45, p = 1.7e-09; organisations: +1.52, t(15) = 3.55, p = 0.0029
+gain difference IFEval - MATH in pretrained SD: +1.10, t(47) = 7.48, p = 1.6e-09
+
+=== (K) Kenny et al. (2015) Eq. 2 on the holdout fit of M4 ===
+       chisq           df        rmsea chisq.scaled rmsea.scaled rmsea.robust 
+     113.412        6.000        0.085       75.614        0.069        0.084 
+      ntotal 
+    2460.000 
+c = 0.0853: threshold chi2 = 113.4, P = 4.01e-22
+c = 0.0841: threshold chi2 = 110.4, P = 1.71e-21
+Scaled statistic (RMSEA.scaled 0.0687): P(chi2_6 > 75.61) = 2.87e-14
+
+=== (T) Median submission dates ===
+Training-role models (n = 2761 with date): median 2024-11-17; all models (n = 4484 with date): median 2024-12-18
